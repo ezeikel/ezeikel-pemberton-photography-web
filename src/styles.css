@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Extra grid styles */
+.full-width-row {
+  overflow-x: hidden;
+}
+
+.full-width-row > div {
+  margin-left: -15px;
+  margin-right: -15px;
+}
