@@ -1,9 +1,9 @@
 <div class="row">
   <div class="hero-carousel">
     <ul class="slides">
-      <li class="slide" *ngFor="let image of images" [ngStyle]="{'background-image': 'url(' + image.url + ')'}">
+      <li class="slide" *ngFor="let image of images" [ngStyle]="{'background-image': 'url(' + image + ')'}">
       </li>
     </ul>
   </div>
-  <div class="logo" style="background-image:url('../../assets/images/logo-white.png')"></div>
+  <div class="logo" [ngStyle]="{'background-image': 'url(' + logo.url + ')'}"></div>
 </div>
