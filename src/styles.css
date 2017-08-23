@@ -1,5 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Variables */
+:root {
+  /* Colors */
+  --color-primary: #F7E7CE;
+  --color-secondary: #F1D3D1;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gold: #CDA349;
+  --color-gold-lighter: #d4af61;
+  --color-light-grey: #ecf0f1;
+  --color-red: #e74c3c;
+  --color-green: #2ecc71;
+  --color-grey: #bdc3c7;
+
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+
+  /* Breakpoints */
+  --bp-sm: 576px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+  --bp-xl: 1200px;
+
+}
+
 /* Extra grid styles */
 .full-width-row {
   overflow-x: hidden;
@@ -8,4 +35,17 @@
 .full-width-row > div {
   margin-left: -15px;
   margin-right: -15px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  }
+
+p {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 300;
+  text-align: center;
 }
