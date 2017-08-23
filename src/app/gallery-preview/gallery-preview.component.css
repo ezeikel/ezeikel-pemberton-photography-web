@@ -1,0 +1,24 @@
+.gallery-preview-title {
+  margin-bottom: var(--spacing-large);
+}
+
+.gallery-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview {
+  margin-bottom: var(--spacing-large);
+}
+
+.preview__image {
+  margin-bottom: var(--spacing-large);
+  background-color: tomato;
+  height: 300px;
+  width: 100%;
+}
+
+.preview__info {
+  text-transform: uppercase;
+  font-weight: 200;
+}
