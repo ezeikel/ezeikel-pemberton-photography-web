@@ -13,6 +13,7 @@
 .hero-carousel {
     overflow: hidden;
     width: 100%;
+    margin-bottom: var(--spacing-large);
 }
 
 .slides {
