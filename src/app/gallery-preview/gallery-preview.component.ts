@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FirebaseApp } from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-gallery-preview',
@@ -7,7 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryPreviewComponent implements OnInit {
 
-  constructor() { }
+  public latest = [
+    {
+      title: 'Vicky + Nii',
+      url: '',
+      firebaseRef: 'vicky-nii'
+    },
+    {
+      title: 'Julianah + Desmond',
+      url: '',
+      firebaseRef: 'julianah-desmond'
+    },
+    {
+      title: 'Hazel + Emmanuel',
+      url: '',
+      firebaseRef: 'hazel-emmanuel'
+    }
+  ];
+
+  constructor(@Inject(FirebaseApp) firebaseApp: firebase.app.App) {
+
+    for (let i = 0; i < this.latest.length; i++) {
+      const storageRef = firebaseApp.storage().ref().child(`gallery-preview/${this.latest[i].firebaseRef}.jpg`);
+      storageRef.getDownloadURL().then(url => {
+        this.latest[i].url = url;
+      });
+
+    }
+  }
 
   ngOnInit() {
   }
