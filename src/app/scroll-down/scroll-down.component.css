@@ -1,0 +1,49 @@
+:host{
+  position: absolute;
+  bottom: 60px;
+  right: 50%;
+  margin-right: -20px;
+}
+
+.mouse {
+  width: 40px;
+  height: 60px;
+  border-radius: 20px;
+  border: 3px solid var(--color-white);
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 20px);
+}
+.mouse:before, .mouse:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.mouse:before {
+  width: 4px;
+  height: 34px;
+  border-radius: 2px;
+  top: 10px;
+  left: calc(50% - 2px);
+  background: var(--color-white);
+  animation: scroll-down 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes scroll-down {
+  0%, 50%, 60% {
+    transform: scaleY(0.118);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  0%, 29.99% {
+    transform-origin: top;
+  }
+  30%, 100% {
+    transform-origin: bottom;
+  }
+  90%, 100% {
+    transform: scaleY(0.118) translateY(-255px);
+  }
+}
