@@ -17,8 +17,16 @@
   transition: all 0.3s ease-in-out;
 }
 
+.hamburger-menu.is-active {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
 .hamburger-menu.is-active > span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
+  background-color: var(--color-black);
 }
 
 .hamburger-menu.is-active > span:nth-child(2) {
@@ -27,4 +35,19 @@
 
 .hamburger-menu.is-active > span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
+  background-color: var(--color-black);
+}
+
+.hamburger-menu + .overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-white);
+  opacity: 0;
+}
+
+.hamburger-menu.is-active + .overlay {
+  position: fixed;
+  opacity: 1;
 }
