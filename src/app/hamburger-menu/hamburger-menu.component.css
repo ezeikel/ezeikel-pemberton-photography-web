@@ -1,0 +1,30 @@
+:host {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+}
+
+.hamburger-menu > span {
+  display: block;
+  margin: 4px auto;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.is-active > span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.is-active > span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.is-active > span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}

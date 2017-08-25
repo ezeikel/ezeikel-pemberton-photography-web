@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { TextComponent } from './text/text.component';
 import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.component';
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
+import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,7 +35,8 @@ const routes: Routes = [
     HomeComponent,
     TextComponent,
     GalleryPreviewComponent,
-    ScrollDownComponent
+    ScrollDownComponent,
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule,
