@@ -21,7 +21,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hamburger-menu.is-active > span:nth-child(1) {
@@ -51,6 +51,7 @@
 .hamburger-menu.is-active + .overlay {
   position: fixed;
   opacity: 1;
+  z-index: 1
 }
 
 .mobile-menu {
@@ -63,6 +64,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 80px;
+  padding-left: 0;
 }
 
 .mobile-menu li {
