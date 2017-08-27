@@ -1,7 +1,11 @@
-<h3 class="gallery-preview-title">Latest</h3>
-<div class="gallery-preview">
-  <div class="preview" *ngFor="let preview of latest">
-    <div class="preview__image" [ngStyle]="{'background-image': 'url(' + preview.url + ')'}"></div>
-    <h4 class="preview__info">{{ preview.title}}</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="gallery-preview-title">Latest</h3>
+    <div class="gallery-preview">
+      <div class="preview" *ngFor="let preview of latest">
+        <div class="preview__image" [ngStyle]="{'background-image': 'url(' + preview.url + ')'}"></div>
+        <h4 class="preview__info">{{ preview.title}}</h4>
+      </div>
+    </div>
   </div>
 </div>

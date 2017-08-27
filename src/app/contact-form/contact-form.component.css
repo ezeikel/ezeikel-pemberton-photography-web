@@ -1,0 +1,38 @@
+.form-title {
+  margin-bottom: var(--spacing-large);
+}
+
+.contact-form  {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-large);
+}
+
+label {
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: 0;
+  border: 0;
+  margin-bottom: 15px;
+  padding: 1em;
+  border: 1px solid #ecf0f1;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+button[type="submit"] {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 15px 90px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  transition: background-color 0.3s ease-in-out;
+  text-transform: uppercase;
+}
