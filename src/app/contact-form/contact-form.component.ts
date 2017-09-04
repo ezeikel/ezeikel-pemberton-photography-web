@@ -8,16 +8,24 @@ import { TaveApiService } from '../tave-api.service';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  data: {};
 
-  constructor(private taveApiService: TaveApiService) { }
+  constructor(private taveApiService: TaveApiService) {
+    this.data = {
+      FirstName: '',
+      LastName: '',
+      Email: '',
+      MobilePhone: '',
+      Message: '',
+      JobType: ''
+    }
+  }
 
-  createLead() {
-    let test = this.taveApiService.testService();
-    console.log(`This is from the service: ${test}`);
+  onSubmit() {
+    this.taveApiService.createLead(this.data);
   }
 
   ngOnInit() {
-    this.createLead();
   }
 
 }
