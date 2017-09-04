@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TaveApiService } from '../tave-api.service';
+
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private taveApiService: TaveApiService) { }
+
+  createLead() {
+    let test = this.taveApiService.testService();
+    console.log(`This is from the service: ${test}`);
+  }
 
   ngOnInit() {
+    this.createLead();
   }
 
 }

@@ -9,6 +9,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './../environments/firebase.config';
 
+import { TaveApiService } from './tave-api.service'
+
 import { AppComponent } from './app.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
@@ -52,7 +54,8 @@ const routes: Routes = [
     )
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    TaveApiService
   ],
   bootstrap: [AppComponent]
 })
