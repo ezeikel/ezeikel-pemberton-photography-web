@@ -23,7 +23,7 @@ export class TaveApiService {
     data = JSON.stringify(data);
 
     this.http
-      .post(`${url}`, data)
+      .post(url, data)
       .subscribe(
         err => {
           console.log('Something went wrong!');
