@@ -16,23 +16,12 @@ export class TaveApiService {
   }
 
   createLead(data) {
-    let body;
     let url = this._apiUrl + this._studioId;
 
-    let params = new HttpParams();
-
-    params = params.append('SecretKey', this._secretKey);
-    params = params.append('FirstName', data.FirstName);
-    params = params.append('LastName', data.LastName);
-    params = params.append('Email', data.Email);
-    params = params.append('MobilePhone', data.MobilePhone);
-    params = params.append('Message', data.Message);
-    params = params.append('JobType', data.JobType);
+    data.SecretKey = this._secretKey;
 
     this.http
-      .post(`${url}`, body, {
-        params: params,
-        // headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      .post(`${url}`, data, {
       })
       .subscribe();
   }

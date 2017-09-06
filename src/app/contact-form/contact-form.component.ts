@@ -12,6 +12,7 @@ export class ContactFormComponent implements OnInit {
 
   constructor(private taveApiService: TaveApiService) {
     this.data = {
+      SecretKey: '',
       FirstName: '',
       LastName: '',
       Email: '',
