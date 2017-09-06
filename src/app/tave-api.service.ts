@@ -34,7 +34,11 @@ export class TaveApiService {
         params: params,
         // headers: new HttpHeaders().set('Content-Type', 'application/json'),
       })
-      .subscribe();
+      .subscribe(
+        err => {
+          console.log('Something went wrong!');
+        }
+      );
   }
 
 }
