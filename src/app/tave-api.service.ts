@@ -16,14 +16,21 @@ export class TaveApiService {
   }
 
   createLead(data) {
-    let url = this._apiUrl + this._studioId;
+    const url = this._apiUrl + this._studioId;
+    let body;
 
     data.SecretKey = this._secretKey;
 
+    body.JSON = JSON.stringify(data);
+
     this.http
-      .post(`${url}`, data, {
+      .post(`${url}`, body, {
       })
-      .subscribe();
+      .subscribe(
+        err => {
+          console.log('Something went wrong!');
+        }
+      );
   }
 
 }
