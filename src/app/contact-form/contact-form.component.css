@@ -8,6 +8,29 @@
   margin-bottom: var(--spacing-large);
 }
 
+.form-message {
+  color: var(--color-white);
+  padding: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-success-message {
+  background-color: var(--color-green);
+}
+
+.form-message p {
+  margin: 0;
+}
+
+.form-message span {
+  text-decoration: underline;
+}
+
+.form-error-message {
+  background-color: var(--color-red);
+}
+
 label {
   font-weight: 200;
   margin-bottom: 5px;

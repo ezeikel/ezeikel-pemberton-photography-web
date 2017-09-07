@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { TaveApiService } from '../tave-api.service';
+import { Lead } from '../lead/lead.model';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,22 +8,20 @@ import { TaveApiService } from '../tave-api.service';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  data: {};
+  lead: Lead;
+  firstName: string;
+  event: string;
+  submitted: boolean = false;
 
   constructor(private taveApiService: TaveApiService) {
-    this.data = {
-      SecretKey: '',
-      FirstName: '',
-      LastName: '',
-      Email: '',
-      MobilePhone: '',
-      Message: '',
-      JobType: ''
-    }
+    this.lead = new Lead('','','','',null,'','');
   }
 
   onSubmit() {
-    this.taveApiService.createLead(this.data);
+    this.taveApiService.createLead(this.lead);
+    this.firstName = this.lead.FirstName;
+    this.event = this.lead.JobType;
+    this.submitted = true;
   }
 
   ngOnInit() {

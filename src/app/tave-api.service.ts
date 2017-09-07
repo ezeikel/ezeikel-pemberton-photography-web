@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/retry';
 
 
 @Injectable()
@@ -24,7 +25,13 @@ export class TaveApiService {
 
     this.http
       .post(url, data)
+      .retry(3)
       .subscribe(
+        // Successful response cal the first callback
+        data => {
+          console.log('Form posted successfully.');
+        },
+        // Errors will call this callback
         err => {
           console.log('Something went wrong!');
         }
