@@ -17,8 +17,22 @@ export class ContactFormComponent implements OnInit {
     this.lead = new Lead('','','','',null,'','');
   }
 
+  upperCaseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   onSubmit() {
+    // Clean up format of data being sent
+    this.lead.FirstName = this.upperCaseFirstLetter(this.lead.FirstName.toLowerCase());
+    this.lead.LastName = this.upperCaseFirstLetter(this.lead.LastName.toLowerCase());
+    this.lead.Email = this.lead.Email.toLowerCase();
+    this.lead.Message = this.upperCaseFirstLetter(this.lead.Message.toLowerCase());
+    this.lead.JobType = this.upperCaseFirstLetter(this.lead.JobType.toLowerCase());
+
+    // Send form data to tave api service
     this.taveApiService.createLead(this.lead);
+
+    // To populate success message for user
     this.firstName = this.lead.FirstName;
     this.event = this.lead.JobType;
     this.submitted = true;
