@@ -29,11 +29,11 @@ export class TaveApiService {
       .subscribe(
         // Successful response cal the first callback
         data => {
-          console.log('Form posted successfully.');
+          console.info('Form posted successfully.');
         },
         // Errors will call this callback
         err => {
-          console.log('Something went wrong!');
+          console.error('Something went wrong!');
         }
       );
   }

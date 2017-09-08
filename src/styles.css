@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Type kit */
+.wf-loading {
+  display: none;
+}
+
 /* Variables */
 :root {
   /* Colors */
@@ -26,6 +31,20 @@
   --bp-xl: 1200px;
 
 }
+
+/* Generic */
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+  a, a:link, a:active, a:visited, a:hover {
+    text-decoration: none;
+  }
 
 /* Extra grid styles */
 .full-width-row {
@@ -55,4 +74,22 @@ button {
   border: none;
   outline: none;
   background: none;
+}
+
+/* Form stuff */
+input.ng-dirty.ng-invalid {
+  border-color: var(--color-red);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--color-light-grey);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: var(--color-light-grey);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: var(--color-light-grey);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--color-light-grey);
 }
