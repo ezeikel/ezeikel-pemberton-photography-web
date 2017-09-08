@@ -35,6 +35,7 @@
 /* Generic */
 * {
   box-sizing: border-box;
+  font-family: "proxima-nova", sans-serif;
 }
 
 ul {
@@ -58,14 +59,12 @@ a, a:link, a:active, a:visited, a:hover {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "proxima-nova", sans-serif;
   font-weight: 400;
   text-align: center;
   margin-top: 0;
   }
 
 p {
-  font-family: "proxima-nova", sans-serif;
   font-weight: 300;
   text-align: center;
 }
