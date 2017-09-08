@@ -42,9 +42,9 @@ ul {
   padding-left: 0;
 }
 
-  a, a:link, a:active, a:visited, a:hover {
-    text-decoration: none;
-  }
+a, a:link, a:active, a:visited, a:hover {
+  text-decoration: none;
+}
 
 /* Extra grid styles */
 .full-width-row {
