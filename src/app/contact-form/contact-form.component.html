@@ -8,11 +8,11 @@
       <form  *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
         <fieldset>
           <label for="first-name">First Name:</label>
-          <input [(ngModel)]="lead.FirstName" type="text" name="first-name" placeholder="Halle" required />
+          <input [(ngModel)]="lead.FirstName" type="text" name="first-name" placeholder="Beyoncé" required />
           <label for="last-name">Last Name:</label>
-          <input [(ngModel)]="lead.LastName" type="text" name="last-name" placeholder="Berry" required />
+          <input [(ngModel)]="lead.LastName" type="text" name="last-name" placeholder="Knowles" required />
           <label for="email">Email:</label>
-          <input [(ngModel)]="lead.Email" type="email" name="email" placeholder="halle@berry.com" email required />
+          <input [(ngModel)]="lead.Email" type="email" name="email" placeholder="beyonce@knowles.com" email required />
           <label for="email-confirm">Email (Confirm):</label>
           <input type="email" name="email-confirm" placeholder="{{lead.Email}}" required />
           <label for="tel">Phone Number:</label>
