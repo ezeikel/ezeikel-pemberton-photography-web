@@ -5,23 +5,58 @@
       <div *ngIf="submitted" class="form-message form-success-message">
         <p>Thank you for contacting us {{firstName | capitalize}}. We will get back to you as soon as we can to discuss your upcoming {{event | capitalize}}</p>
       </div>
-      <form  *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
+      <form *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
         <fieldset>
           <label for="first-name">First Name:</label>
-          <input [(ngModel)]="lead.FirstName" type="text" name="first-name" placeholder="Beyoncé" required />
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
+            <div *ngIf="firstName.errors.required">
+              First Name is required.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" required />
+
           <label for="last-name">Last Name:</label>
-          <input [(ngModel)]="lead.LastName" type="text" name="last-name" placeholder="Knowles" required />
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+            <div *ngIf="lastName.errors.required">
+              Last Name is required.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" required />
+
           <label for="email">Email:</label>
-          <input [(ngModel)]="lead.Email" type="email" name="email" placeholder="beyonce@knowles.com" email required />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+            <div *ngIf="email.errors.email">
+              Email must be in a valid format.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" email required />
+
           <label for="email-confirm">Email (Confirm):</label>
           <input type="email" name="email-confirm" placeholder="{{lead.Email}}" required />
+
           <label for="tel">Phone Number:</label>
-          <input [(ngModel)]="lead.MobilePhone" type="tel" name="tel" placeholder="07953005302" required/>
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+            <div *ngIf="phone.errors.required">
+              Telephone number is required.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" required/>
+
           <label for="message">Message:</label>
-          <textarea [(ngModel)]="lead.Message" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160"></textarea>
+          <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160"></textarea>
+
           <label for="job-type">Job Type:</label>
-          <input [(ngModel)]="lead.JobType" type="text" name="job-type" required/>
-          <button type="submit" [disabled]="!contactForm.form.valid">Submit</button>
+          <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
+            <div *ngIf="jobType.errors.required">
+              Job type is required.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" required />
+
+          <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
         </fieldset>
       </form>
     </div>
