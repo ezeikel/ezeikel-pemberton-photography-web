@@ -7,18 +7,18 @@
       </div>
       <form *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
         <fieldset>
-          <label for="first-name">First Name:</label>
+          <label for="first-name">First name:</label>
           <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
             <div *ngIf="firstName.errors.required">
-              First Name is required.
+              First name is required.
             </div>
           </div>
           <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" required />
 
-          <label for="last-name">Last Name:</label>
+          <label for="last-name">Last name:</label>
           <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
             <div *ngIf="lastName.errors.required">
-              Last Name is required.
+              Last name is required.
             </div>
           </div>
           <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" required />
@@ -28,11 +28,11 @@
             <div *ngIf="email.errors.required">
               Email is required.
             </div>
-            <div *ngIf="email.errors.email && !email.errors.required">
+            <div *ngIf="(email.errors.email || email.errors.pattern) && !email.errors.required">
               Email must be in a valid format.
             </div>
           </div>
-          <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" email required />
+          <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email required />
 
           <div *ngIf="email.valid && (email.dirty || email.touched)">
             <label for="email-confirm">Email (Confirm):</label>
@@ -40,17 +40,17 @@
               <div *ngIf="emailConfirm.errors.required">
                 Please confirm your email address.
               </div>
-              <div *ngIf="emailConfirm.errors.email && !emailConfirm.errors.required">
+              <div *ngIf="(emailConfirm.errors.email || emailConfirm.errors.pattern) && !emailConfirm.errors.required">
                 Email must be in a valid format.
               </div>
             </div>
-            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" email required />
+            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email required />
           </div>
 
-          <label for="tel">Phone Number:</label>
+          <label for="tel">Phone number:</label>
           <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
             <div *ngIf="phone.errors.required">
-              Telephone number is required.
+              Phone number is required.
             </div>
           </div>
           <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" required/>
@@ -58,10 +58,10 @@
           <label for="message">Message:</label>
           <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160"></textarea>
 
-          <label for="job-type">Job Type:</label>
+          <label for="job-type">Job type:</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
             <div *ngIf="jobType.errors.required">
-              Job Type is required.
+              Job type is required.
             </div>
           </div>
           <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" required />
