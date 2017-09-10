@@ -21,6 +21,7 @@ import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.compo
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { EqualValidator } from './equals-validator.directive';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -42,7 +43,8 @@ const routes: Routes = [
     GalleryPreviewComponent,
     ScrollDownComponent,
     HamburgerMenuComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,

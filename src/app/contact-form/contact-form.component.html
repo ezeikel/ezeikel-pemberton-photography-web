@@ -40,11 +40,15 @@
               <div *ngIf="emailConfirm.errors.required">
                 Please confirm your email address.
               </div>
-              <div *ngIf="(emailConfirm.errors.email || emailConfirm.errors.pattern) && !emailConfirm.errors.required">
-                Email must be in a valid format.
+              <div *ngIf="!emailConfirm.errors.required">
+                Emails do not match.
               </div>
+              <!-- TODO: Need to get custom validateEqual to work -->
+              <!-- <div *ngIf="!emailConfirm.errors.validateEqual">
+                Emails do not match.
+              </div> -->
             </div>
-            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email required />
+            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" validateEqual="email" required />
           </div>
 
           <label for="tel">Phone number:</label>
