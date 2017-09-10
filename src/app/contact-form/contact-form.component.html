@@ -34,7 +34,7 @@
           </div>
           <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" email required />
 
-          <div *ngIf="email.valid && (email.dirty || email.touched)" class="email-confirm-container">
+          <div *ngIf="email.valid && (email.dirty || email.touched)">
             <label for="email-confirm">Email (Confirm):</label>
             <div *ngIf="emailConfirm.invalid && (emailConfirm.dirty || emailConfirm.touched)" class="error-message">
               <div *ngIf="emailConfirm.errors.required">
@@ -44,7 +44,7 @@
                 Email must be in a valid format.
               </div>
             </div>
-            <input type="email" #emailConfirm name="email-confirm" placeholder="{{lead.Email}}" required />
+            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" email required />
           </div>
 
           <label for="tel">Phone Number:</label>
@@ -61,7 +61,7 @@
           <label for="job-type">Job Type:</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
             <div *ngIf="jobType.errors.required">
-              Job type is required.
+              Job Type is required.
             </div>
           </div>
           <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" required />

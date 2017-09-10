@@ -14,7 +14,7 @@ export class ContactFormComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(private taveApiService: TaveApiService) {
-    this.lead = new Lead('','','','',null,'','');
+    this.lead = new Lead('','','','','',null,'','');
   }
 
   upperCaseFirstLetter(string) {
@@ -22,6 +22,11 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit() {
+    // Remove email confirm from data sent to api
+    if (this.lead.EmailConfirm.length > 0) {
+      delete this.lead.EmailConfirm;
+    }
+
     // Clean up format of data being sent
     this.lead.FirstName = this.upperCaseFirstLetter(this.lead.FirstName.toLowerCase());
     this.lead.LastName = this.upperCaseFirstLetter(this.lead.LastName.toLowerCase());
