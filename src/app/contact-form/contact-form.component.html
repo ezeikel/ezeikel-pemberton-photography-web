@@ -28,14 +28,24 @@
             <div *ngIf="email.errors.required">
               Email is required.
             </div>
-            <div *ngIf="email.errors.email">
+            <div *ngIf="email.errors.email && !email.errors.required">
               Email must be in a valid format.
             </div>
           </div>
           <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" email required />
 
-          <label for="email-confirm">Email (Confirm):</label>
-          <input type="email" name="email-confirm" placeholder="{{lead.Email}}" required />
+          <div *ngIf="email.valid && (email.dirty || email.touched)" class="email-confirm-container">
+            <label for="email-confirm">Email (Confirm):</label>
+            <div *ngIf="emailConfirm.invalid && (emailConfirm.dirty || emailConfirm.touched)" class="error-message">
+              <div *ngIf="emailConfirm.errors.required">
+                Please confirm your email address.
+              </div>
+              <div *ngIf="emailConfirm.errors.email && !emailConfirm.errors.required">
+                Email must be in a valid format.
+              </div>
+            </div>
+            <input type="email" #emailConfirm name="email-confirm" placeholder="{{lead.Email}}" required />
+          </div>
 
           <label for="tel">Phone Number:</label>
           <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
