@@ -9,10 +9,10 @@ import { Lead } from '../lead/lead.model';
 })
 export class ContactFormComponent implements OnInit {
   lead: Lead;
+  jobTypes = ['Proposal', 'Traditional Engagement', 'Wedding', 'Other'];
   firstName: string;
   event: string;
-  submitted: boolean = false;
-  jobTypes = ['Proposal', 'Traditional Engagement', 'Wedding', 'Other'];
+  submitted = false;
 
   constructor(private taveApiService: TaveApiService) {
     this.lead = new Lead('','','','','',null,'','');
