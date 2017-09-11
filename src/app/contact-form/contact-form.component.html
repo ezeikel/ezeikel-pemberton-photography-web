@@ -13,7 +13,7 @@
               First name is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" required />
+          <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" autocomplete="off" required />
 
           <label for="last-name">Last name:</label>
           <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
@@ -21,7 +21,7 @@
               Last name is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" required />
+          <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" autocomplete="off" required />
 
           <label for="email">Email:</label>
           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
@@ -32,7 +32,7 @@
               Email must be in a valid format.
             </div>
           </div>
-          <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email required />
+          <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email autocomplete="off" autocapitalize="off" required />
 
           <div *ngIf="email.valid && (email.dirty || email.touched)">
             <label for="email-confirm">Email (Confirm):</label>
@@ -48,7 +48,7 @@
                 Emails do not match.
               </div> -->
             </div>
-            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" validateEqual="email" required />
+            <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" validateEqual="email" autocomplete="off" autocapitalize="off" required />
           </div>
 
           <label for="tel">Phone number:</label>
@@ -57,10 +57,10 @@
               Phone number is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" required/>
+          <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" required/>
 
           <label for="message">Message:</label>
-          <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160"></textarea>
+          <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
 
           <label for="job-type">Job type:</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
@@ -68,7 +68,7 @@
               Job type is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" required />
+          <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" autocomplete="off" required />
 
           <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
         </fieldset>
