@@ -3,7 +3,7 @@
     <h3 class="form-title">Contact Form</h3>
     <div class="contact-form">
       <div *ngIf="submitted" class="form-message form-success-message">
-        <p>Thank you for contacting us {{firstName | capitalize}}. We will get back to you as soon as we can to discuss your upcoming {{event | capitalize}}</p>
+        <p>Thank you for contacting us {{firstName | capitalize}}. We will get back to you as soon as we can to discuss your upcoming {{event | capitalize}}.</p>
       </div>
       <form *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
         <fieldset>
