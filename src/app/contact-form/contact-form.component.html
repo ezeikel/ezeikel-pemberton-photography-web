@@ -7,24 +7,24 @@
       </div>
       <form *ngIf="!submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
         <fieldset>
-          <label for="first-name">First name:</label>
-          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
+          <label for="first-name">First name</label>
+          <div *ngIf="firstName.invalid && (firstName.dirty && firstName.touched)" class="error-message">
             <div *ngIf="firstName.errors.required">
               First name is required.
             </div>
           </div>
           <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" autocomplete="off" required />
 
-          <label for="last-name">Last name:</label>
-          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+          <label for="last-name">Last name</label>
+          <div *ngIf="lastName.invalid && (lastName.dirty && lastName.touched)" class="error-message">
             <div *ngIf="lastName.errors.required">
               Last name is required.
             </div>
           </div>
           <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" autocomplete="off" required />
 
-          <label for="email">Email:</label>
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          <label for="email">Email</label>
+          <div *ngIf="email.invalid && (email.dirty && email.touched)" class="error-message">
             <div *ngIf="email.errors.required">
               Email is required.
             </div>
@@ -34,8 +34,8 @@
           </div>
           <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email autocomplete="off" autocapitalize="off" required />
 
-          <div *ngIf="email.valid && (email.dirty || email.touched)">
-            <label for="email-confirm">Email (Confirm):</label>
+          <div *ngIf="email.valid && (email.dirty && email.touched)">
+            <label for="email-confirm">Email (Confirm)</label>
             <div *ngIf="emailConfirm.invalid && (emailConfirm.dirty || emailConfirm.touched)" class="error-message">
               <div *ngIf="emailConfirm.errors.required">
                 Please confirm your email address.
@@ -51,18 +51,15 @@
             <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}" validateEqual="email" autocomplete="off" autocapitalize="off" required />
           </div>
 
-          <label for="tel">Phone number:</label>
-          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+          <label for="tel">Phone number</label>
+          <div *ngIf="phone.invalid && (phone.dirty && phone.touched)" class="error-message">
             <div *ngIf="phone.errors.required">
               Phone number is required.
             </div>
           </div>
           <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" required/>
 
-          <label for="message">Message:</label>
-          <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
-
-          <label for="job-type">What is the occasion?:</label>
+          <label for="job-type">What is the occasion?</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
             <div *ngIf="jobType.errors.required">
               An occasion is required.
@@ -72,6 +69,10 @@
             <option value="" disabled selected hidden>Please select an option</option>
             <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
           </select>
+
+          <label for="message">Message</label>
+          <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
+
           <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
         </fieldset>
       </form>
