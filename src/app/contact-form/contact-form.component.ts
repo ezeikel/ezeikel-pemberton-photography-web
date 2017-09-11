@@ -29,11 +29,10 @@ export class ContactFormComponent implements OnInit {
     }
 
     // Clean up format of data being sent
-    this.lead.FirstName = this.upperCaseFirstLetter(this.lead.FirstName.toLowerCase());
-    this.lead.LastName = this.upperCaseFirstLetter(this.lead.LastName.toLowerCase());
-    this.lead.Email = this.lead.Email.toLowerCase();
-    this.lead.Message = this.upperCaseFirstLetter(this.lead.Message.toLowerCase());
-    this.lead.JobType = this.upperCaseFirstLetter(this.lead.JobType.toLowerCase());
+    this.lead.FirstName = this.upperCaseFirstLetter(this.lead.FirstName.toLowerCase().trim());
+    this.lead.LastName = this.upperCaseFirstLetter(this.lead.LastName.toLowerCase().trim());
+    this.lead.Email = this.lead.Email.toLowerCase().trim();
+    this.lead.Message = this.upperCaseFirstLetter(this.lead.Message.toLowerCase().trim());
 
     // Send form data to tave api service
     this.taveApiService.createLead(this.lead);
