@@ -79,7 +79,7 @@ button {
 }
 
 /* Form stuff */
-input, textarea {
+input, textarea, select {
   font-size: var(--default-font-size);
 }
 
@@ -89,6 +89,10 @@ input.ng-dirty.ng-invalid {
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px var(--color-white) inset;
+}
+
+select {
+  background-color: var(--color-white);
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

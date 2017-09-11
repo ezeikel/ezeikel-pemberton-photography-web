@@ -12,6 +12,7 @@ export class ContactFormComponent implements OnInit {
   firstName: string;
   event: string;
   submitted: boolean = false;
+  jobTypes = ['Proposal', 'Traditional Engagement', 'Wedding', 'Other'];
 
   constructor(private taveApiService: TaveApiService) {
     this.lead = new Lead('','','','','',null,'','');

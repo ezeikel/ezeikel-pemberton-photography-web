@@ -68,8 +68,10 @@
               Job type is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.JobType" #jobType="ngModel" type="text" placeholder="Wedding" name="job-type" autocomplete="off" required />
-
+          <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
+            <option value="" disabled selected hidden>Please choose an option</option>
+            <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
+          </select>
           <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
         </fieldset>
       </form>
