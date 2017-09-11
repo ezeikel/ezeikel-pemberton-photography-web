@@ -47,10 +47,6 @@ a, a:link, a:active, a:visited, a:hover {
   text-decoration: none;
 }
 
-input {
-  font-size: 16px;
-}
-
 /* Extra grid styles */
 .full-width-row {
   overflow-x: hidden;
@@ -80,6 +76,10 @@ button {
 }
 
 /* Form stuff */
+input, textarea {
+  font-size: 16px;
+}
+
 input.ng-dirty.ng-invalid {
   border-color: var(--color-red);
 }
