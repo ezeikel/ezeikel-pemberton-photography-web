@@ -87,6 +87,10 @@ input.ng-dirty.ng-invalid {
   border-color: var(--color-red);
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--color-white) inset;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: var(--color-light-grey);
 }
