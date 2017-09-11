@@ -62,14 +62,14 @@
           <label for="message">Message:</label>
           <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
 
-          <label for="job-type">Job type:</label>
+          <label for="job-type">What is the occasion?:</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
             <div *ngIf="jobType.errors.required">
-              Job type is required.
+              An occasion is required.
             </div>
           </div>
           <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
-            <option value="" disabled selected hidden>Please choose an option</option>
+            <option value="" disabled selected hidden>Please select an option</option>
             <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
           </select>
           <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
