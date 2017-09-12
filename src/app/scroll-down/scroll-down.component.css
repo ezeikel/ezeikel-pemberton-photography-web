@@ -1,8 +1,9 @@
 :host{
+  width: 100%;
   position: absolute;
+  left: 0;
   bottom: 60px;
-  right: 50%;
-  margin-right: -20px;
+
 }
 
 .mouse {
