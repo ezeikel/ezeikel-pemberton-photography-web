@@ -71,3 +71,7 @@
   font-size: 32px;
   margin-bottom: 24px;
 }
+
+.mobile-menu li a {
+  color: var(--color-black);
+}
