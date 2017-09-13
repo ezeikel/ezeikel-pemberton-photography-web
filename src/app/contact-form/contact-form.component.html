@@ -76,7 +76,7 @@
               Date is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" placeholder="Please select a date" autocomplete="off" required/>
+          <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" placeholder="Please select a date" autocomplete="off" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
 
 
           <label for="message">Message</label>
