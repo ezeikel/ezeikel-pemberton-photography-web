@@ -70,6 +70,15 @@
             <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
           </select>
 
+          <label for="tel">When is it?</label>
+          <div *ngIf="date.invalid && (date.dirty && date.touched)" class="error-message">
+            <div *ngIf="date.errors.required">
+              Date is required.
+            </div>
+          </div>
+          <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" placeholder="Please select a date" autocomplete="off" required/>
+
+
           <label for="message">Message</label>
           <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
 
