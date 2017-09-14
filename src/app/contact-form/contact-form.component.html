@@ -57,7 +57,7 @@
               Phone number is required.
             </div>
           </div>
-          <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" required/>
+          <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" minlength="11" maxlength="11" required/>
 
           <label for="job-type">What is the occasion?</label>
           <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error-message">
@@ -70,7 +70,7 @@
             <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
           </select>
 
-          <label for="tel">When is it?</label>
+          <label for="tel">What date did you have in mind?</label>
           <div *ngIf="date.invalid && (date.dirty && date.touched)" class="error-message">
             <div *ngIf="date.errors.required">
               Date is required.
