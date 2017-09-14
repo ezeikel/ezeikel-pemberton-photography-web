@@ -32,13 +32,16 @@
 
   /* Font Sizing */
   --default-font-size: 16px;
-
 }
 
 /* Generic */
 * {
   box-sizing: border-box;
   font-family: "proxima-nova", sans-serif;
+}
+
+body {
+  font-size: var(--defaul-font-size);
 }
 
 ul {

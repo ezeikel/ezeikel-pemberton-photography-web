@@ -9,13 +9,13 @@ import { Lead } from '../lead/lead.model';
 })
 export class ContactFormComponent implements OnInit {
   lead: Lead;
-  jobTypes = ['Proposal', 'Traditional Engagement', 'Wedding', 'Other'];
+  jobTypes = ['Event', 'Pre Wedding Shoot', 'Proposal/Engagement', 'Traditional Engagement/Wedding', 'Wedding'];
   firstName: string;
   event: string;
   submitted = false;
 
   constructor(private taveApiService: TaveApiService) {
-    this.lead = new Lead('','','','','',null,'','');
+    this.lead = new Lead('','','','','',null,'','','');
   }
 
   upperCaseFirstLetter(string) {

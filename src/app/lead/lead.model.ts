@@ -1,6 +1,6 @@
 export class Lead {
 
-  constructor (public SecretKey: string, public FirstName: string, public LastName: string, public Email: string, public EmailConfirm: string, public MobilePhone: number, public Message: string, public JobType: string,) {
+  constructor (public SecretKey: string, public FirstName: string, public LastName: string, public Email: string, public EmailConfirm: string, public MobilePhone: number, public Message: string, public JobType: string, public EventDate) {
     this.SecretKey = SecretKey,
     this.FirstName = FirstName,
     this.LastName = LastName,
@@ -8,7 +8,8 @@ export class Lead {
     this.EmailConfirm = EmailConfirm,
     this.MobilePhone = MobilePhone,
     this.Message = Message,
-    this.JobType = JobType
+    this.JobType = JobType,
+    this.EventDate = EventDate
   }
 
 }
