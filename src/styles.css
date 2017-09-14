@@ -41,6 +41,10 @@
   font-family: "proxima-nova", sans-serif;
 }
 
+body {
+  font-size: 16px;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;
