@@ -11,19 +11,19 @@ export class GalleryPreviewComponent implements OnInit {
 
   public latest = [
     {
+      title: 'Fari + Tino',
+      url: '',
+      firebaseRef: 'fari-tino'
+    },
+    {
+      title: 'Latrena + Pavel',
+      url: '',
+      firebaseRef: 'latrena-pavel'
+    },
+    {
       title: 'Vicky + Nii',
       url: '',
       firebaseRef: 'vicky-nii'
-    },
-    {
-      title: 'Julianah + Desmond',
-      url: '',
-      firebaseRef: 'julianah-desmond'
-    },
-    {
-      title: 'Hazel + Emmanuel',
-      url: '',
-      firebaseRef: 'hazel-emmanuel'
     }
   ];
 
