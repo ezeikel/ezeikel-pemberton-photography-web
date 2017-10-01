@@ -10,8 +10,9 @@ import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './../environments/firebase.config';
 
 import { TaveApiService } from './tave-api.service'
-
+import { EqualValidator } from './equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+
 import { AppComponent } from './app.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
@@ -21,10 +22,11 @@ import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.compo
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { EqualValidator } from './equals-validator.directive';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -44,7 +46,8 @@ const routes: Routes = [
     ScrollDownComponent,
     HamburgerMenuComponent,
     ContactFormComponent,
-    EqualValidator
+    EqualValidator,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

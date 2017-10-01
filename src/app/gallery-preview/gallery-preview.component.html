@@ -3,7 +3,9 @@
     <h3 class="gallery-preview-title">Take a peak</h3>
     <div class="gallery-preview">
       <div class="preview" *ngFor="let preview of latest">
-        <div class="preview__image" [ngStyle]="{'background-image': 'url(' + preview.url + ')'}"></div>
+        <a routerLink="/gallery">
+          <div class="preview__image" [ngStyle]="{'background-image': 'url(' + preview.url + ')'}"></div>
+        </a>
         <h4 class="preview__info">{{ preview.title}}</h4>
       </div>
     </div>
