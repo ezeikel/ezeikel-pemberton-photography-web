@@ -23,10 +23,12 @@ import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { CollectionComponent } from './collection/collection.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'gallery', component: GalleryComponent },
+  { path: 'gallery/:collection', component: CollectionComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -47,7 +49,8 @@ const routes: Routes = [
     HamburgerMenuComponent,
     ContactFormComponent,
     EqualValidator,
-    GalleryComponent
+    GalleryComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
