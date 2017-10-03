@@ -1,0 +1,8 @@
+.preview__image {
+  margin-bottom: var(--spacing-large);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 100%;
+}
