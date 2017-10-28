@@ -1,0 +1,99 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+.header a {
+    color: var(--color-white);
+}
+
+.header__nav, .header__nav ul {
+    display: flex;
+    font-size: 36px;
+    line-height: 55px;
+    text-transform: uppercase;
+}
+
+.header__nav ul li {
+    width: 150px;
+}
+
+.header__nav, .header__nav ul a {
+    font-size: 36px;
+    line-height: 55px;
+    text-transform: uppercase;
+}
+
+.header__menu {
+    margin: 0;
+}
+
+.header__logo-link {
+    width: 200px;
+    height: 100px;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Hamburger */
+
+
+
+/* Media queries */
+
+@media (min-width: 768px) {
+    .header {
+        width: 100%;
+    }
+
+    .header__nav {
+        justify-content: center;
+    }
+
+    .header__nav .header__logo {
+        order: 2;
+    }
+
+    .header__nav ul:first-of-type {
+        order: 1;
+    }
+
+    .header__nav ul:last-of-type {
+        order: 3;
+    }
+
+    .header__nav .menu-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header__nav, .header__nav ul a {
+        display: flex;
+        align-items: center;
+        font-size: var(--default-font-size);
+        letter-spacing: 2px;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .header__nav, .header__nav ul a:hover {
+        color: var(--color-primary);
+    }
+
+    .header__logo-link {
+        display: block;
+        order: 2;
+    }
+}

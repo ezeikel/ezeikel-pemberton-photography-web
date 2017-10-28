@@ -24,6 +24,7 @@ import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.componen
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CollectionComponent } from './collection/collection.component';
+import { HeroHeaderComponent } from './hero-header/hero-header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -50,7 +51,8 @@ const routes: Routes = [
     ContactFormComponent,
     EqualValidator,
     GalleryComponent,
-    CollectionComponent
+    CollectionComponent,
+    HeroHeaderComponent
   ],
   imports: [
     BrowserModule,
