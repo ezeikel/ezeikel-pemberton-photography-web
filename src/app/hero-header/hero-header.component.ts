@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroHeaderComponent implements OnInit {
 
-  constructor() { }
+  public isActive: boolean;
+  
+    constructor() {
+      this.isActive = false;
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+  
+    toggleIsActive () {
+      this.isActive =  !this.isActive;
+    }
 
 }
