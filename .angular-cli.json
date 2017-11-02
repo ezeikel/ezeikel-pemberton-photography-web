@@ -22,7 +22,7 @@
         "../node_modules/normalize.css/normalize.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "styles.css"
+        "styles/main.scss"
       ],
       "scripts": [
         "../ga.js",
@@ -57,7 +57,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }
