@@ -1,5 +1,7 @@
+@import "~styles/shared/variables";
+
 :host {
-    @media (min-width: 768px) {
+    @media (min-width: $bp-md) {
         display: flex;
         justify-content: center;
         align-content: center;
@@ -17,25 +19,65 @@
     a {
         color: var(--color-black);
     }
-    @media (min-width: 768px) {
+    @media (min-width: $bp-md) {
         width: 100%;
         a {
             color: var(--color-white);
         }
     }
-    &__nav {
-        .menu-item {
-            width: 150px;
-            @media (min-width: 768px) {
-                display: flex;
-                justify-content: center;    
-            }            
+}
+
+.header__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    z-index: 1;
+    padding-top: 60px;
+    @media (min-width: $bp-md) {
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+        background-color: transparent;
+        padding-top: 0;
+        ul:first-of-type {
+            order: 1;
+            margin-right: 50px;
         }
-        .menu-item a {
+        ul:last-of-type {
+            order: 3;
+            margin-left: 50px;
+        }
+    }   
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36px;
+    line-height: 55px;
+    text-transform: uppercase;
+    margin: 0;
+    .menu-item {
+        width: 150px;
+        text-align: center;
+        a {
             font-size: 36px;
             line-height: 55px;
             text-transform: uppercase;
-            @media (min-width: 768px) {
+        }         
+    }
+    @media (min-width: $bp-md) {
+        flex-direction: row;
+        .menu-item {
+            display: flex;
+            justify-content: center; 
+            a {
                 display: flex;
                 align-items: center;
                 font-size: var(--default-font-size);
@@ -44,33 +86,13 @@
                 &:hover {
                     color: var(--color-primary);                
                 }
-            }             
-        }
-        @media (min-width: 768px) {
-            display: flex;
-            position: absolute;
-            justify-content: center;
-            ul:first-of-type {
-                order: 1;
             }
-            ul:last-of-type {
-                order: 3;
-            }
-        }       
-    }
-    &__menu {
-        display: flex;
-        font-size: 36px;
-        line-height: 55px;
-        text-transform: uppercase;
-        margin: 0;
-    }
-    &__logo {
-        @media (min-width: 768px) {
-            order: 2;
         }
     }
-    &__logo-link {
+}
+
+.header__logo {
+    &-link {
         display: block;
         width: 200px;
         height: 100px;
@@ -79,30 +101,34 @@
         background-size: contain;
         background-position: center;   
     }
-    &__hamburger {
-        position: fixed;
-        right: 20px;
-        cursor: pointer;
-        > span {
-            display: block;
-            margin: 4px auto;
-            width: 25px;
-            height: 2px;
-            background-color: var(--color-white);
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    @media (min-width: $bp-md) {
+        order: 2;
+    }
+}
+
+.header__hamburger {
+    position: fixed;
+    right: 20px;
+    cursor: pointer;
+    > span {
+        display: block;
+        margin: 4px auto;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-white);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    &.is-active {
+        > span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+            background-color: var(--color-black);           
         }
-        &.is-active {
-            > span:nth-child(1) {
-                transform: translateY(6px) rotate(45deg);
-                background-color: var(--color-black);           
-            }
-            > span:nth-child(2) {
-                opacity: 0;
-            }
-            > span:nth-child(3) {
-                transform: translateY(-6px) rotate(-45deg);
-                background-color: var(--color-black);
-            }
+        > span:nth-child(2) {
+            opacity: 0;
+        }
+        > span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+            background-color: var(--color-black);
         }
     }
 }
