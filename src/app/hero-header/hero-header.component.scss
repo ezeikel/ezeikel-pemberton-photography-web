@@ -28,17 +28,18 @@
 }
 
 .header__nav {
-    visibility: hidden;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1;
+    visibility: hidden;
     flex-direction: column;
     background-color: var(--color-white);
-    z-index: 1;
     padding-top: var(--spacing-huge);
     &.is-active {
+        position: fixed;
         visibility: visible;
     }
     ul:first-of-type {
@@ -127,7 +128,7 @@
 }
 
 .header__hamburger {
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 20px;
     z-index: 1;
@@ -145,6 +146,7 @@
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
     &.is-active {
+        position: fixed;
         > span:nth-child(1) {
             transform: translateY(6px) rotate(45deg);
             background-color: var(--color-black);           
