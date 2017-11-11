@@ -10,36 +10,6 @@
     display: none;
   }
   
-  /* Variables */
-  :root {
-    /* Colors */
-    --color-primary: #E7995C;
-    /* --color-primary: #F7E7CE; */
-    --color-secondary: #F1D3D1;
-    --color-black: #000;
-    --color-white: #fff;
-    --color-gold: #CDA349;
-    --color-gold-lighter: #d4af61;
-    --color-light-grey: #ecf0f1;
-    --color-red: #e74c3c;
-    --color-green: #2ecc71;
-    --color-grey: #bdc3c7;
-  
-    /* Spacing */
-    --spacing-small: 8px;
-    --spacing-medium: 16px;
-    --spacing-large: 32px;
-  
-    /* Breakpoints */
-    --bp-sm: 576px;
-    --bp-md: 768px;
-    --bp-lg: 992px;
-    --bp-xl: 1200px;
-  
-    /* Font Sizing */
-    --default-font-size: 16px;
-  }
-  
   /* Generic */
   * {
     box-sizing: border-box;

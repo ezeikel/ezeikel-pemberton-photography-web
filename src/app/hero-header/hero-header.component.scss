@@ -37,7 +37,7 @@
     flex-direction: column;
     background-color: var(--color-white);
     z-index: 1;
-    padding-top: 60px;
+    padding-top: var(--spacing-huge);
     @media (min-width: $bp-md) {
         flex-direction: row;
         position: relative;
@@ -46,11 +46,12 @@
         padding-top: 0;
         ul:first-of-type {
             order: 1;
-            margin-right: 50px;
+            margin-right: var(--spacing-huge);
         }
         ul:last-of-type {
             order: 3;
-            margin-left: 50px;
+            margin-left: var(--spacing-huge);
+
         }
     }   
 }
@@ -112,7 +113,7 @@
     cursor: pointer;
     > span {
         display: block;
-        margin: 4px auto;
+        margin: var(--spaciing-tiny) auto;
         width: 25px;
         height: 2px;
         background-color: var(--color-white);
