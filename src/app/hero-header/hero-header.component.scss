@@ -120,6 +120,9 @@
     }
     @media (min-width: $bp-md) {
         order: 2;
+        &-link.is-active {
+            background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+        }
     }
 }
 
