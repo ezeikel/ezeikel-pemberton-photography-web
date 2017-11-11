@@ -41,6 +41,9 @@
     &.is-active {
         visibility: visible;
     }
+    ul:first-of-type {
+        margin-top: var(--spacing-large);
+    }
     @media (min-width: $bp-md) {
         visibility: visible;
         display: flex;
@@ -52,6 +55,7 @@
         ul:first-of-type {
             order: 1;
             margin-right: var(--spacing-huge);
+            margin-top: 0;
         }
         ul:last-of-type {
             order: 3;
@@ -108,7 +112,11 @@
         background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center;   
+        background-position: center;
+        &.is-active {
+            background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-black.png?alt=media&token=de7f7996-2a0b-415c-babb-e5b4d4cf0546");
+
+        }
     }
     @media (min-width: $bp-md) {
         order: 2;
