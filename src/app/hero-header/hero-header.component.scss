@@ -28,17 +28,21 @@
 }
 
 .header__nav {
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    display: flex;
     flex-direction: column;
     background-color: var(--color-white);
     z-index: 1;
     padding-top: var(--spacing-huge);
+    &.is-active {
+        display: flex;
+    }
     @media (min-width: $bp-md) {
+        display: flex;
         flex-direction: row;
         position: relative;
         justify-content: center;
@@ -110,6 +114,8 @@
 .header__hamburger {
     position: fixed;
     right: 20px;
+    top: 20px;
+    z-index: 1;
     cursor: pointer;
     > span {
         display: block;
@@ -136,4 +142,8 @@
             background-color: var(--color-black);
         }
     }
+    @media (min-width: $bp-md) {
+      display: none;
+    }
+
 }

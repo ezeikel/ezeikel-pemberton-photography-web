@@ -1,5 +1,5 @@
 <header class="header header--home row">
-  <nav class="header__nav header__nav--home col-md-12">
+  <nav class="header__nav header__nav--home col-md-12" [ngClass]="{'is-active': isActive}">
     <div class="header__logo header__logo--home">
       <a class="header__logo-link header__logo-link--home" routerLink="/"></a>
     </div>
@@ -7,7 +7,7 @@
       <li class="menu-item"><a routerLink="/">Home</a></li>
       <li class="menu-item"><a routerLink="/blog">Blog</a></li>
     </ul>
-    <ul class="header__menu header__mneu--home">
+    <ul class="header__menu header__menu--home">
         <li class="menu-item"><a href="http://clients.ezeikelpemberton.com">Clients</a></li>
         <li class="menu-item"><a routerLink="/get-in-touch">Get in touch</a></li>
       </ul> 
