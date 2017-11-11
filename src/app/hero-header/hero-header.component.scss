@@ -113,7 +113,11 @@
     cursor: pointer;
     > span {
         display: block;
-        margin: var(--spaciing-tiny) auto;
+        // margin: var(--spaciing-tiny) auto; TODO: Figure out why this doesnt work.
+        margin-top: var(--spacing-tiny);
+        margin-bottom: var(--spacing-tiny);
+        margin-right: auto;
+        margin-left: auto;
         width: 25px;
         height: 2px;
         background-color: var(--color-white);
