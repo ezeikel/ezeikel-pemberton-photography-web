@@ -1,0 +1,10 @@
+/* Extra Bootstrap grid styles */
+
+.full-width-row {
+  overflow-x: hidden;
+}
+
+.full-width-row > div {
+  margin-left: -15px;
+  margin-right: -15px;
+}
