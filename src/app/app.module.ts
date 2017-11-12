@@ -21,14 +21,14 @@ import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.component';
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { GalleryComponent } from './gallery/gallery.component';
+import { BlogComponent } from './blog/blog.component';
 import { CollectionComponent } from './collection/collection.component';
 import { HeroHeaderComponent } from './hero-header/hero-header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'get-in-touch', component: ContactFormComponent },
-  { path: 'gallery', component: GalleryComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'gallery/:collection', component: CollectionComponent },
   { path: '',
     redirectTo: '/home',
@@ -49,7 +49,7 @@ const routes: Routes = [
     ScrollDownComponent,
     ContactFormComponent,
     EqualValidator,
-    GalleryComponent,
+    BlogComponent,
     CollectionComponent,
     HeroHeaderComponent
   ],
