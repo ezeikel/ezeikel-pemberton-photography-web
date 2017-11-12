@@ -1,4 +1,5 @@
 @import "~styles/shared/variables";
+@import "~styles/shared/mixins";
 
 .gallery-preview-title {
   margin-bottom: var(--spacing-large);
@@ -16,8 +17,10 @@
 }
 
 .preview {
+  margin-bottom: var(--spacing-large);
   @media (min-width: $bp-md) {
     width: 30%;
+    margin-bottom: 0;
     & + .preview {
       margin-left: var(--spacing-large);
     }
