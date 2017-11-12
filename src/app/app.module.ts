@@ -18,18 +18,18 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 import { HomeComponent } from './home/home.component';
 import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
-import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.component';
+import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { BlogComponent } from './blog/blog.component';
-import { CollectionComponent } from './collection/collection.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
 import { HeroHeaderComponent } from './hero-header/hero-header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'get-in-touch', component: ContactFormComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'gallery/:collection', component: CollectionComponent },
+  { path: 'blog/:post', component: BlogPostComponent },
+  { path: 'get-in-touch', component: ContactFormComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -45,12 +45,12 @@ const routes: Routes = [
     HeroCarouselComponent,
     HomeComponent,
     WelcomeTextComponent,
-    GalleryPreviewComponent,
+    BlogPreviewComponent,
     ScrollDownComponent,
     ContactFormComponent,
     EqualValidator,
     BlogComponent,
-    CollectionComponent,
+    BlogPostComponent,
     HeroHeaderComponent
   ],
   imports: [

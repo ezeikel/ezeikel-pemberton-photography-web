@@ -3,11 +3,11 @@ import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-gallery-preview',
-  templateUrl: './gallery-preview.component.html',
-  styleUrls: ['./gallery-preview.component.scss']
+  selector: 'app-blog-preview',
+  templateUrl: './blog-preview.component.html',
+  styleUrls: ['./blog-preview.component.scss']
 })
-export class GalleryPreviewComponent implements OnInit {
+export class BlogPreviewComponent implements OnInit {
 
   public latest = [
     {

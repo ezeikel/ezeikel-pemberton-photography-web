@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-sm-12">
-    <h2 class="gallery-preview-title">Our Latest Updates</h2>
-    <div class="gallery-preview">
+    <h2 class="blog-preview-title">Our Latest Updates</h2>
+    <div class="blog-preview">
       <div class="preview" *ngFor="let preview of latest">
-        <a routerLink="/gallery/{{preview.firebaseRef}}">
+        <a routerLink="/blog/{{preview.firebaseRef}}">
           <div class="preview__image" [ngStyle]="{'background-image': 'url(' + preview.url + ')'}"></div>
         </a>
         <h4 class="preview__info">{{ preview.title}}</h4>
