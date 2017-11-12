@@ -27,6 +27,7 @@ import { HeroHeaderComponent } from './hero-header/hero-header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'get-in-touch', component: ContactFormComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'gallery/:collection', component: CollectionComponent },
   { path: '',
