@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 import { HomeComponent } from './home/home.component';
-import { TextComponent } from './text/text.component';
+import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { GalleryPreviewComponent } from './gallery-preview/gallery-preview.component';
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -43,7 +43,7 @@ const routes: Routes = [
     HeroImageComponent,
     HeroCarouselComponent,
     HomeComponent,
-    TextComponent,
+    WelcomeTextComponent,
     GalleryPreviewComponent,
     ScrollDownComponent,
     ContactFormComponent,
