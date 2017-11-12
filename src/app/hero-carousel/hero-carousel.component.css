@@ -38,6 +38,7 @@
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+    filter: brightness(80%);
 }
 
 @keyframes carousel {
