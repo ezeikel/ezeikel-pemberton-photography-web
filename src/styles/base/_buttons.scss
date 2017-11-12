@@ -1,10 +1,11 @@
 /* Buttons */
 
 button {
+    display: flex;
+    padding: 0;
     border: none;
     outline: none;
     background: none;
     display: block;
     cursor: pointer;
-    padding: 0;
 }
