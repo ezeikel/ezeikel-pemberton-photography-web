@@ -24,6 +24,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { HeroHeaderComponent } from './hero-header/hero-header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -51,7 +52,8 @@ const routes: Routes = [
     EqualValidator,
     BlogComponent,
     BlogPostComponent,
-    HeroHeaderComponent
+    HeroHeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

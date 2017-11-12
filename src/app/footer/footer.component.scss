@@ -1,0 +1,27 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 60px;
+    padding: var(--spacing-medium);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.footer__social-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    li + li {
+        margin-left: var(--spacing-large);
+    }
+    a {
+        color: var(--color-white);
+    }
+}
+
+.footer__copyright {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-weight: 200;
+}
