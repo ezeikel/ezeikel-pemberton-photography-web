@@ -11,6 +11,12 @@
     border-color: var(--color-red);
   }
 
+  input[type="date"] {
+    @media (max-width: $bp-md) {
+      min-height: 24px;
+    }
+  }
+
   select {
     background-color: var(--color-white);
   }
