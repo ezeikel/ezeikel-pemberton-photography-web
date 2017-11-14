@@ -25,6 +25,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { HeroHeaderComponent } from './hero-header/hero-header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -53,7 +54,8 @@ const routes: Routes = [
     BlogComponent,
     BlogPostComponent,
     HeroHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

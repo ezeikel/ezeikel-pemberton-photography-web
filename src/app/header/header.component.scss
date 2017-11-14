@@ -1,0 +1,24 @@
+@import "~styles/shared/variables";
+
+.header {
+  background-color: var(--color-primary);
+  margin-bottom: var(--spacing-large);
+}
+
+.header__menu {
+  @media (min-width: $bp-md) {
+    .menu-item {
+      a {
+        &:after {
+          background-color: var(--color-white);
+        }
+      }
+    }
+  }
+}
+
+.header__hamburger {
+  > span {
+    background-color: var(--color-primary);
+  }
+}
