@@ -1,5 +1,11 @@
 /* Extra Bootstrap grid styles */
 
+.container-fluid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .full-width-row {
   overflow-x: hidden;
 }

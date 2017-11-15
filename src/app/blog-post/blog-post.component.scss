@@ -1,3 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 0 auto;
+}
+
 .preview__image {
   margin-bottom: var(--spacing-large);
   background-repeat: no-repeat;

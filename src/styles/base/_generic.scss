@@ -5,6 +5,10 @@
     font-family: "proxima-nova", sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
   body {
     font-size: var(--defaul-font-size);
   }
