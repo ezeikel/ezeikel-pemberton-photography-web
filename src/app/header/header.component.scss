@@ -5,6 +5,16 @@
   margin-bottom: var(--spacing-large);
 }
 
+.header__nav {
+  display: none;
+  &.is-active {
+    display: flex;
+  }
+  @media (min-width: $bp-md) {
+    display: flex;
+  }
+}
+
 .header__menu {
   @media (min-width: $bp-md) {
     .menu-item {
