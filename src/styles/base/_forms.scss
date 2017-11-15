@@ -11,18 +11,15 @@
     border-color: var(--color-red);
   }
 
+  //HACK: This fixes the issue of date input collapsing height until it gains focus on mobile.
   input[type="date"] {
     @media (max-width: $bp-md) {
-      &:before {
-        content: 'Please select a date';
-        display: block;
-        visibility: hidden;
-        float: right;
-      }
-      &:after {
-        content: '';
-        display: block;
-        clear: both;
+      &.ng-pristine {
+        &:before {
+          content: 'Please select a date:';
+          display: block;
+          margin-right: var(--spacing-small);
+        }
       }
     }
   }
