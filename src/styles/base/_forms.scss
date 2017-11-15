@@ -16,7 +16,7 @@
     @media (max-width: $bp-md) {
       &.ng-pristine {
         &:before {
-          content: 'Please select a date:';
+          content: 'Please select a date';
           display: block;
           margin-right: var(--spacing-small);
         }
