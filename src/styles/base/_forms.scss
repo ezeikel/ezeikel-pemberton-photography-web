@@ -13,7 +13,17 @@
 
   input[type="date"] {
     @media (max-width: $bp-md) {
-      min-height: 24px;
+      &:before {
+        content: 'Please select a date';
+        display: block;
+        visibility: hidden;
+        float: right;
+      }
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
     }
   }
 
