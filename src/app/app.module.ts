@@ -5,10 +5,11 @@ import { RouterModule, Routes } from '@angular/router'
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
-import { firebaseConfig } from './../environments/firebase.config';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { environment } from './../environments/environment';
 import { TaveApiService } from './tave-api.service'
 import { EqualValidator } from './equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
@@ -63,8 +64,9 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true }
