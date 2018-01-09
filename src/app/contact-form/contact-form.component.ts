@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaveApiService } from '../tave-api.service';
-import { Lead } from '../lead/lead.model';
+import Lead from '../lead/lead.model';
 
 @Component({
   selector: 'app-contact-form',
