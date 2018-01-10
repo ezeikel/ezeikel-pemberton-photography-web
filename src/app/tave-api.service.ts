@@ -28,13 +28,9 @@ export class TaveApiService {
       .retry(3)
       .subscribe(
         // Successful response cal the first callback
-        data => {
-          console.info('Form posted successfully.');
-        },
+        data => console.info('Form posted successfully.'),
         // Errors will call this callback
-        err => {
-          console.error('Something went wrong!');
-        }
+        err => console.error('Something went wrong!')
       );
   }
 

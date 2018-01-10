@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
+import 'firebase/storage';
 
 // Import the Image interface
 import { Image } from '../image/image.interface';
@@ -18,7 +18,7 @@ export class HeroCarouselComponent implements OnInit {
     url: ''
   }
 
-  constructor(@Inject(FirebaseApp) firebaseApp: firebase.app.App) {
+  constructor(@Inject(FirebaseApp) firebaseApp: FirebaseApp) {
 
     const logo = firebaseApp.storage().ref().child(`logo/logo-white.png`);
     logo.getDownloadURL().then(url => {
