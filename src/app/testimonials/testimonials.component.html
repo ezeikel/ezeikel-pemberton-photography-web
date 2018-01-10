@@ -1,3 +1,5 @@
-<p>
-  testimonials works!
-</p>
+<ul>
+  <div *ngFor="let testimonial of testimonialsObservable | async">
+    <p>{{testimonial.review}}</p>
+  </div>
+</ul>
