@@ -1,5 +1,9 @@
-<ul>
-  <div *ngFor="let testimonial of testimonialsObservable | async">
-    <p>{{testimonial.review}}</p>
-  </div>
-</ul>
+<section class="">
+  <h2>What our clients say</h2>
+  <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+    <div ngxSlickItem *ngFor="let testimonial of testimonialsObservable | async" class="slide">
+      <p>{{testimonial.review}}</p>
+      <h4>John Doe</h4>
+    </div>
+  </ngx-slick>
+</section>

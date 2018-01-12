@@ -11,9 +11,21 @@ export class TestimonialsComponent implements OnInit {
   testimonialsObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase) { }
 
+  slideConfig = {  
+    "fade": true, 
+    "dots": false, 
+    "infinite": true, 
+    "slidesToShow": 1, 
+    "slidesToScroll": 1 ,
+    "mobileFirst": true
+  };
+
+  afterChange(e) {
+    console.log('afterChange');
+  }
+
   ngOnInit() {
     this.testimonialsObservable = this.getTestimonials('/testimonials');
-    console.log(this.testimonialsObservable);
   }
 
   getTestimonials(listPath): Observable<any[]> {

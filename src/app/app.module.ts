@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { SlickModule } from 'ngx-slick';
 
 import { environment } from './../environments/environment';
 import { TaveApiService } from './tave-api.service'
@@ -67,6 +68,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    SlickModule.forRoot(),
     RouterModule.forRoot(
       routes,
       { enableTracing: true }
