@@ -1,4 +1,5 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { FooterComponent } from './footer.component';
 import { DebugElement } from '@angular/core';
@@ -39,5 +40,6 @@ describe('FooterComponent', () => {
 
   it(`should render '${year}' inside of .footer__copyright element`, async(() => {
     expect(element.querySelector('.footer__copyright').textContent).toContain(year);
+    expect(de.query(By.css('.footer__copyright')).nativeElement.innerText).toContain(year);
   }));
 });
