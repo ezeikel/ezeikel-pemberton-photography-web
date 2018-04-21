@@ -3,7 +3,7 @@ import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-blog-preview',
+  selector: 'ep-photography-blog-preview',
   templateUrl: './blog-preview.component.html',
   styleUrls: ['./blog-preview.component.scss']
 })

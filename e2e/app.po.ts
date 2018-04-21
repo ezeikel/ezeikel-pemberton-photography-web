@@ -6,6 +6,6 @@ export class EzeikelPembertonPhotographyWebPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('ep-photography-root h1')).getText();
   }
 }

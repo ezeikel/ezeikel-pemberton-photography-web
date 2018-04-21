@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-blog-post',
+  selector: 'ep-photography-blog-post',
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })

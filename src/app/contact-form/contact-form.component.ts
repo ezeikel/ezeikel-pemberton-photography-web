@@ -3,12 +3,20 @@ import { TaveApiService } from '../tave-api.service';
 import { ILead } from '../lead/lead.interface';
 
 @Component({
-  selector: 'app-contact-form',
+  selector: 'ep-photography-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
-  lead: ILead;
+  lead: ILead = {
+    SecretKey: '',
+    FirstName: '',
+    Email: '',
+    EmailConfirm: '',
+    JobType: '',
+    EventDate: ''
+  };
+
   jobTypes = ['Event', 'Pre Wedding Shoot', 'Proposal/Engagement', 'Traditional Engagement/Wedding', 'Wedding'];
   firstName: string;
   event: string;

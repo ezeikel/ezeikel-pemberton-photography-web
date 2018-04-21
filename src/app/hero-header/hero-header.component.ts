@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-hero-header',
+  selector: 'ep-photography-hero-header',
   templateUrl: './hero-header.component.html',
   styleUrls: ['./hero-header.component.scss']
 })

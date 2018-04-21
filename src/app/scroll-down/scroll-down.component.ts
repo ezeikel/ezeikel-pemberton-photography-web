@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-scroll-down',
+  selector: 'ep-photography-scroll-down',
   templateUrl: './scroll-down.component.html',
   styleUrls: ['./scroll-down.component.css']
 })
