@@ -22,8 +22,8 @@ export class TaveApiService {
       .post(url, data)
       .retry(3)
       .subscribe(
-        data => console.info('Form posted successfully.'),
-        err => console.error('Something went wrong!: ', err)
+        result => console.log('Lead created successfully.', result),
+        err => console.error('There was an error creating lead: ', err)
       );
   }
 

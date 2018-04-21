@@ -6,18 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-header.component.scss']
 })
 export class HeroHeaderComponent implements OnInit {
+  public isActive = false;
 
-  public isActive: boolean;
-  
-    constructor() {
-      this.isActive = false;
-    }
+  constructor() {}
 
-    ngOnInit() {
-    }
-  
-    toggleIsActive () {
-      this.isActive =  !this.isActive;
-    }
+  ngOnInit() {
+  }
 
+  toggleIsActive () {
+    this.isActive =  !this.isActive;
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaveApiService } from '../tave-api.service';
-import Lead from '../lead/lead.model';
+import { ILead } from '../lead/lead.interface';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,15 +8,13 @@ import Lead from '../lead/lead.model';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
-  lead: Lead;
+  lead: ILead;
   jobTypes = ['Event', 'Pre Wedding Shoot', 'Proposal/Engagement', 'Traditional Engagement/Wedding', 'Wedding'];
   firstName: string;
   event: string;
   submitted = false;
 
-  constructor(private taveApiService: TaveApiService) {
-    this.lead = new Lead('','','','','',null,'','','');
-  }
+  constructor(private taveApiService: TaveApiService) {}
 
   upperCaseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

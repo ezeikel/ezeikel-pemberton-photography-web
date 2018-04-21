@@ -12,7 +12,7 @@ import { SlickModule } from 'ngx-slick';
 
 import { environment } from './../environments/environment';
 import { TaveApiService } from './tave-api.service'
-import { EqualValidator } from './equals-validator.directive';
+import { EqualValidatorDirective } from './equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 import { AppComponent } from './app.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { path: '**', component: HomeComponent } //TODO: Replace with PageNotFoundComponent
+  { path: '**', component: HomeComponent } // TODO: Replace with PageNotFoundComponent
 ]
 
 @NgModule({
@@ -53,7 +53,7 @@ const routes: Routes = [
     BlogPreviewComponent,
     ScrollDownComponent,
     ContactFormComponent,
-    EqualValidator,
+    EqualValidatorDirective,
     BlogComponent,
     BlogPostComponent,
     HeroHeaderComponent,

@@ -8,17 +8,17 @@ import { Observable } from 'rxjs/Observable'
   styleUrls: ['./testimonials.component.scss']
 })
 export class TestimonialsComponent implements OnInit {
-  testimonialsObservable: Observable<any[]>;
-  constructor(private db: AngularFireDatabase) { }
-
-  slideConfig = {  
-    "fade": true, 
-    "dots": false, 
-    "infinite": true, 
-    "slidesToShow": 1, 
-    "slidesToScroll": 1 ,
-    "mobileFirst": true
+  public testimonialsObservable: Observable<any[]>;
+  public slideConfig = {
+    'fade': true,
+    'dots': false,
+    'infinite': true,
+    'slidesToShow': 1,
+    'slidesToScroll': 1,
+    'mobileFirst': true
   };
+
+  constructor(private db: AngularFireDatabase) { }
 
   afterChange(e) {
     console.log('afterChange');
