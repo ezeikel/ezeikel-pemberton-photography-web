@@ -17,7 +17,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "ep-photography",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
