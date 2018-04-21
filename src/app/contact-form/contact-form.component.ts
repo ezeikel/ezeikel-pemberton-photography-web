@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaveApiService } from '../tave-api.service';
-import { ILead } from '../lead/lead.interface';
+import { ILead } from '../models/lead.interface';
 
 @Component({
   selector: 'ep-photography-contact-form',
@@ -23,6 +23,9 @@ export class ContactFormComponent implements OnInit {
   submitted = false;
 
   constructor(private taveApiService: TaveApiService) {}
+
+  ngOnInit() {
+  }
 
   upperCaseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -48,9 +51,6 @@ export class ContactFormComponent implements OnInit {
     this.event = this.lead.JobType;
 
     this.submitted = true;
-  }
-
-  ngOnInit() {
   }
 
 }

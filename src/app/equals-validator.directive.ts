@@ -2,7 +2,10 @@ import { Directive, forwardRef, Attribute } from '@angular/core';
 import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Directive({
-  selector: '[ep-photography-validateEqual][formControlName],[ep-photography-validateEqual][formControl],[ep-photography-validateEqual][ngModel]',
+  selector: `
+    [ep-photography-validateEqual][formControlName],
+    [ep-photography-validateEqual][formControl],
+    [ep-photography-validateEqual][ngModel]`,
   providers: [
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => EqualValidatorDirective), multi: true }
   ]
