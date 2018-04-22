@@ -1,8 +1,8 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { FooterComponent } from './footer.component';
-import { DebugElement } from '@angular/core';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -19,9 +19,9 @@ describe('FooterComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.componentInstance; // to access properties and methods
-    element = fixture.nativeElement; // to access DOM element
-    de = fixture.debugElement; // test helper
+    component = fixture.componentInstance;
+    element = fixture.nativeElement;
+    de = fixture.debugElement;
 
     fixture.detectChanges();
   }));
