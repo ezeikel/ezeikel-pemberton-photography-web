@@ -68,7 +68,7 @@
           </div>
           <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
             <option value="" disabled selected hidden>Please select an option</option>
-            <option *ngFor="let jobType of jobTypes" [ngValue]="jobType">{{jobType}}</option>
+            <option *ngFor="let jobType of _jobTypes" [ngValue]="jobType">{{jobType}}</option>
           </select>
 
           <label for="tel">What date did you have in mind?</label>

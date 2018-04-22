@@ -8,28 +8,32 @@ import { ILead } from '../models/lead.interface';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
-  lead: ILead = {
-    SecretKey: '',
-    FirstName: '',
-    Email: '',
-    EmailConfirm: '',
-    JobType: '',
-    EventDate: ''
-  };
-
-  jobTypes = ['Event', 'Pre Wedding Shoot', 'Proposal/Engagement', 'Traditional Engagement/Wedding', 'Wedding'];
-  firstName: string;
-  event: string;
-  submitted = false;
+  public lead: ILead;
+  private _jobTypes = [
+    'Event',
+    'Pre Wedding Shoot',
+    'Proposal/Engagement',
+    'Traditional Engagement/Wedding',
+    'Wedding'
+  ];
+  private _firstName: string;
+  private _event: string;
+  public submitted = false;
 
   constructor(private taveApiService: TaveApiService) {}
 
   ngOnInit() {
+    this.lead = {
+      SecretKey: '',
+      FirstName: '',
+      Email: '',
+      EmailConfirm: '',
+      JobType: '',
+      EventDate: ''
+    };
   }
 
-  upperCaseFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  uppercaseFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
   onSubmit() {
     // Remove email confirm from data sent to api
@@ -38,19 +42,19 @@ export class ContactFormComponent implements OnInit {
     }
 
     // Clean up format of data being sent
-    this.lead.FirstName = this.upperCaseFirstLetter(this.lead.FirstName.trim().toLowerCase());
-    this.lead.LastName = this.upperCaseFirstLetter(this.lead.LastName.trim().toLowerCase());
+    this.lead.FirstName = this.uppercaseFirstLetter(this.lead.FirstName.trim().toLowerCase());
+    this.lead.LastName = this.uppercaseFirstLetter(this.lead.LastName.trim().toLowerCase());
     this.lead.Email = this.lead.Email.trim().toLowerCase();
-    this.lead.Message = this.upperCaseFirstLetter(this.lead.Message.trim().toLowerCase());
+    this.lead.Message = this.uppercaseFirstLetter(this.lead.Message.trim().toLowerCase());
 
     // Send form data to tave api service
     this.taveApiService.createLead(this.lead);
 
     // To populate success message for user
-    this.firstName = this.lead.FirstName;
-    this.event = this.lead.JobType;
+    this._firstName = this.lead.FirstName;
+    this._event = this.lead.JobType;
 
-    this.submitted = true;
+    return this.submitted = true;
   }
 
 }
