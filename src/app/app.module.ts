@@ -11,15 +11,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { SlickModule } from 'ngx-slick';
 
 import { environment } from './../environments/environment';
-import { TaveApiService } from './tave-api.service'
-import { EqualValidatorDirective } from './equals-validator.directive';
+import { TaveApiService } from './services/tave-api.service'
+import { EqualValidatorDirective } from './directives/equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 import { AppComponent } from './app.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 import { HomeComponent } from './home/home.component';
-import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -49,7 +48,6 @@ const routes: Routes = [
     HeroImageComponent,
     HeroCarouselComponent,
     HomeComponent,
-    WelcomeTextComponent,
     BlogPreviewComponent,
     ScrollDownComponent,
     ContactFormComponent,

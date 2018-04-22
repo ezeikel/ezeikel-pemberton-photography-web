@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TaveApiService } from '../tave-api.service';
+import { TaveApiService } from '../services/tave-api.service';
 import { ILead } from '../models/lead.interface';
 
 @Component({
