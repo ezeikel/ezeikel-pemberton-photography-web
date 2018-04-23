@@ -73,7 +73,7 @@ describe('ContactFormComponent', () => {
     expect(taveApiService.createLead).toHaveBeenCalled();
   }));
 
-  it('change submitted to be true after form submit', async(() => {
+  it('should change submitted to be true after form submit', async(() => {
     component.lead = {
       SecretKey: 'dghsdgdgt234534t23',
       FirstName: 'Sean',
