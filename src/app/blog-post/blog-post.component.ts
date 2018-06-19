@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog-post.component.scss']
 })
 export class BlogPostComponent implements OnInit {
-  collection: string;
-  url: string;
+  public collection: string;
+  public url: string;
 
-  constructor(@Inject(FirebaseApp) firebaseApp: firebase.app.App, private route: ActivatedRoute) {
-    this.route
+  constructor(
+    private _firebaseApp: FirebaseApp, 
+    private _route: ActivatedRoute
+  ) {
+    this._route
       .params
       .subscribe(params => this.collection = params['post']);
 
-    const storageRef = firebaseApp.storage().ref().child(`gallery-preview/${this.collection}.jpg`);
+    const storageRef = _firebaseApp.storage().ref().child(`gallery-preview/${this.collection}.jpg`);
 
     storageRef.getDownloadURL().then(url => {
       this.url = url;

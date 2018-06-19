@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'ep-photography-blog-preview',
@@ -27,10 +26,10 @@ export class BlogPreviewComponent implements OnInit {
     }
   ];
 
-  constructor(@Inject(FirebaseApp) firebaseApp: firebase.app.App) {
+  constructor(private  _firebaseApp: FirebaseApp) {
 
     for (let i = 0; i < this.latest.length; i++) {
-      const storageRef = firebaseApp.storage().ref().child(`gallery-preview/${this.latest[i].firebaseRef}.jpg`);
+      const storageRef = _firebaseApp.storage().ref().child(`gallery-preview/${this.latest[i].firebaseRef}.jpg`);
       storageRef.getDownloadURL().then(url => {
         this.latest[i].url = url;
       });
