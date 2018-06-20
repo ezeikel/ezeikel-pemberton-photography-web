@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/retry';
+import { retry } from 'rxjs/operators';
 
 
 @Injectable()
@@ -20,7 +20,7 @@ export class TaveApiService {
 
     this.http
       .post(url, data)
-      .retry(3)
+      .pipe(retry(3))
       .subscribe(
         result => console.log('Lead created successfully.', result),
         err => console.error('There was an error creating lead: ', err)
