@@ -14,7 +14,6 @@ import { EqualValidatorDirective } from './directives/equals-validator.directive
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 import { AppComponent } from './app.component';
-import { HeroImageComponent } from './hero-image/hero-image.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 import { HomeComponent } from './home/home.component';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
@@ -32,7 +31,6 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     CapitalizePipe,
     AppComponent,
-    HeroImageComponent,
     HeroCarouselComponent,
     HomeComponent,
     BlogPreviewComponent,

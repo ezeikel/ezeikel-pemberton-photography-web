@@ -1,54 +1,54 @@
 @import "shared/variables";
 
 :host {
-    @media (min-width: $bp-md) {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        position: absolute;
-        right: 0;
-        left: 0;
-    }
+  @media (min-width: $bp-md) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
 }
 
 .header {
+  a {
+    color: var(--color-black);
+  }
+  @media (min-width: $bp-md) {
+    width: 100%;
     a {
-        color: var(--color-black);
+      color: var(--color-white); //TODO: White color should be pulled from `header.scss`
     }
-    @media (min-width: $bp-md) {
-        width: 100%;
-        a {
-            color: var(--color-white); //TODO: White color should be pulled from `header.scss`
-        }
-    }
+  }
 }
 
 .header__menu {
-    @media (min-width: $bp-md) {
-        .menu-item {
-            a {
-                &:after {
-                    background-color: var(--color-primary);
-                }
-            }
+  @media (min-width: $bp-md) {
+    .menu-item {
+      a {
+        &:after {
+          background-color: var(--color-primary);
         }
+      }
     }
+  }
 }
 
 .header__hamburger {
-    > span {
-        background-color: var(--color-white);
+  > span {
+    background-color: var(--color-white);
+  }
+  &.is-active {
+    > span:nth-child(1) {
+      background-color: var(--color-primary);
     }
-    &.is-active {
-        > span:nth-child(1) {
-            background-color: var(--color-primary);
-        }
-        > span:nth-child(2) {
-            opacity: 0;
-        }
-        > span:nth-child(3) {
-            background-color: var(--color-primary);
-        }
-    } //TODO: Active state color should be picked up from `header.scss`
+    > span:nth-child(2) {
+      opacity: 0;
+    }
+    > span:nth-child(3) {
+      background-color: var(--color-primary);
+    }
+  } //TODO: Active state color should be picked up from `header.scss`
 
 }
