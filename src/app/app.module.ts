@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router'
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
@@ -28,18 +26,7 @@ import { HeroHeaderComponent } from './hero-header/hero-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
-
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:post', component: BlogPostComponent },
-  { path: 'get-in-touch', component: ContactFormComponent },
-  { path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: '**', component: HomeComponent } // TODO: Replace with PageNotFoundComponent
-]
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -63,17 +50,13 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    SlickModule.forRoot(),
-    RouterModule.forRoot(
-      routes,
-      { enableTracing: true }
-    )
+    SlickModule.forRoot()
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
     TaveApiService
   ],
   bootstrap: [AppComponent]
