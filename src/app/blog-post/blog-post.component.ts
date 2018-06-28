@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FirebaseApp } from 'angularfire2';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'ep-photography-blog-post',
@@ -12,19 +12,15 @@ export class BlogPostComponent implements OnInit {
   public url: string;
 
   constructor(
-    private _firebaseApp: FirebaseApp, 
+    private _firebaseService: FirebaseService,
     private _route: ActivatedRoute
-  ) {
+  ) {}
+
+  async ngOnInit() {
     this._route
       .params
       .subscribe(params => this.collection = params['post']);
 
-    const storageRef = _firebaseApp.storage().ref().child(`gallery-preview/${this.collection}.jpg`);
-
-    storageRef.getDownloadURL().then(url => {
-      this.url = url;
-    });
+    this.url = await this._firebaseService.getGalleryPreview(this.collection);
   }
-
-  ngOnInit() {}
 }

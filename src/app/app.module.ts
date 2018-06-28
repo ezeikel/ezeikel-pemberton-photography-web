@@ -10,6 +10,7 @@ import { SlickModule } from 'ngx-slick';
 
 import { environment } from './../environments/environment';
 import { TaveApiService } from './services/tave-api.service'
+import { FirebaseService } from './services/firebase.service';
 import { EqualValidatorDirective } from './directives/equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
@@ -55,7 +56,8 @@ import { AppRoutingModule } from './/app-routing.module';
     SlickModule.forRoot()
   ],
   providers: [
-    TaveApiService
+    TaveApiService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })
