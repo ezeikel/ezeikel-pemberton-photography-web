@@ -1,9 +1,5 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
-import { FirebaseApp, FirebaseAppConfig, AngularFireModule } from 'angularFire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FirebaseApp, AngularFireModule } from 'angularFire2';
 
 import { environment } from '../../environments/environment';
 
@@ -15,8 +11,6 @@ describe('BlogPostComponent', () => {
   let component: BlogPostComponent;
   let fixture: ComponentFixture<BlogPostComponent>;
   let de, element;
-
-  const year = (new Date()).getFullYear();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

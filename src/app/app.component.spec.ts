@@ -2,6 +2,9 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { HeroHeaderComponent } from './hero-header/hero-header.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -14,7 +17,10 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeroHeaderComponent,
+        HeaderComponent,
+        FooterComponent
       ],
     }).compileComponents();
 
