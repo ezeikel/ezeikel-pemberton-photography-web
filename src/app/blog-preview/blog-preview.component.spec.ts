@@ -1,10 +1,8 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
-import { AngularFireModule } from 'angularfire2';
 
 import { BlogPreviewComponent } from './blog-preview.component';
+import { FirebaseService } from '../services/firebase.service';
 
 describe('BlogPreviewComponent', () => {
   let component: BlogPreviewComponent;
@@ -16,12 +14,12 @@ describe('BlogPreviewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        AngularFireModule
+        RouterTestingModule
       ],
       declarations: [
         BlogPreviewComponent
-      ]
+      ],
+      providers: [ FirebaseService ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogPreviewComponent);

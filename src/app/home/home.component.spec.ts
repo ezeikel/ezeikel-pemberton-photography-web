@@ -1,8 +1,10 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HomeComponent } from './home.component';
+import { HeroCarouselComponent } from '../hero-carousel/hero-carousel.component';
+import { ScrollDownComponent } from '../scroll-down/scroll-down.component';
+import { BlogPreviewComponent } from '../blog-preview/blog-preview.component';
 
 describe('FooterComponent', () => {
   let component: HomeComponent;
@@ -13,8 +15,14 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
-        HomeComponent
+        HomeComponent,
+        HeroCarouselComponent,
+        ScrollDownComponent,
+        BlogPreviewComponent
       ],
     }).compileComponents();
 

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { SlickModule } from 'ngx-slick';
 
 import { environment } from './../environments/environment';
 import { TaveApiService } from './services/tave-api.service'
@@ -25,7 +24,6 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { HeroHeaderComponent } from './hero-header/hero-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
@@ -42,8 +40,7 @@ import { AppRoutingModule } from './/app-routing.module';
     BlogPostComponent,
     HeroHeaderComponent,
     FooterComponent,
-    HeaderComponent,
-    TestimonialsComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -52,13 +49,12 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    SlickModule.forRoot()
+    AngularFireAuthModule
   ],
   providers: [
     TaveApiService,
     FirebaseService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

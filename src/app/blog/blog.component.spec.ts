@@ -3,8 +3,7 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { BlogComponent } from './blog.component';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { BlogPreviewComponent } from '../blog-preview/blog-preview.component';
 
 describe('FooterComponent', () => {
   let component: BlogComponent;
@@ -17,8 +16,7 @@ describe('FooterComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         BlogComponent,
-        HeaderComponent,
-        FooterComponent
+        BlogPreviewComponent
       ],
     }).compileComponents();
 

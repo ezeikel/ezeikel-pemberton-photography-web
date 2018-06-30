@@ -1,14 +1,10 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { TaveApiService } from '../services/tave-api.service';
 
 import { ContactFormComponent } from './contact-form.component';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
 import { CapitalizePipe } from '../pipes/capitalize.pipe';
 
 describe('ContactFormComponent', () => {
@@ -25,8 +21,6 @@ describe('ContactFormComponent', () => {
       ],
       declarations: [
         ContactFormComponent,
-        HeaderComponent,
-        FooterComponent,
         CapitalizePipe
       ],
       providers: [
