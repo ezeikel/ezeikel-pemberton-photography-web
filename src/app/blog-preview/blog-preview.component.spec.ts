@@ -1,8 +1,12 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { environment } from '../../environments/environment';
 
 import { BlogPreviewComponent } from './blog-preview.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from '../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 describe('BlogPreviewComponent', () => {
   let component: BlogPreviewComponent;
@@ -11,15 +15,20 @@ describe('BlogPreviewComponent', () => {
 
   const year = (new Date()).getFullYear();
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        AngularFireModule.initializeApp(environment.firebase)
       ],
       declarations: [
         BlogPreviewComponent
       ],
-      providers: [ FirebaseService ]
+      providers: [ 
+        FirebaseService,
+        AngularFireDatabase,
+        AngularFireStorage
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogPreviewComponent);
@@ -30,7 +39,7 @@ describe('BlogPreviewComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should be created', async(() => {
+  it('should be created', (() => {
     expect(component).toBeTruthy();
   }));
 

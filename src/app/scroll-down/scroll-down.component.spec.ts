@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { ScrollDownComponent } from './scroll-down.component';
 
-describe('FooterComponent', () => {
+describe('ScrollDownComponent', () => {
   let component: ScrollDownComponent;
   let fixture: ComponentFixture<ScrollDownComponent>;
   let de, element;

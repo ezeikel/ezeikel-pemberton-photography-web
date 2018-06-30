@@ -1,7 +1,7 @@
 <div class="row">
   <div class="hero-carousel">
     <ul class="slides">
-      <li class="slide" *ngFor="let image of images" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+      <li class="slide" *ngFor="let image of images" [ngStyle]="{'background-image': 'url(' + (image | async) + ')'}">
       </li>
     </ul>
   </div>

@@ -1,27 +1,35 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { environment } from '../../environments/environment';
 
 import { BlogPostComponent } from './blog-post.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from '../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 describe('BlogPostComponent', () => {
   let component: BlogPostComponent;
   let fixture: ComponentFixture<BlogPostComponent>;
-  let firebaseService: FirebaseService;
   let de, element;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        AngularFireModule.initializeApp(environment.firebase),
+      ],
       declarations: [
         BlogPostComponent
       ],
       providers: [ 
-        FirebaseService 
+        FirebaseService,
+        AngularFireDatabase,
+        AngularFireStorage
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogPostComponent);
-    firebaseService = TestBed.get(FirebaseService);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     de = fixture.debugElement;
@@ -29,7 +37,7 @@ describe('BlogPostComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should be created', async(() => {
+  it('should be created', (() => {
     expect(component).toBeTruthy();
   }));
 

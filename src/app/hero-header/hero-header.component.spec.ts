@@ -1,16 +1,18 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 import { HeroHeaderComponent } from './hero-header.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeroHeader', () => {
   let component: HeroHeaderComponent;
   let fixture: ComponentFixture<HeroHeaderComponent>;
   let de, element;
 
-  const year = (new Date()).getFullYear();
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         HeroHeaderComponent
       ],

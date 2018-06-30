@@ -11,8 +11,8 @@ export class BlogPreviewComponent implements OnInit {
 
   constructor(private _firebaseService: FirebaseService) {}
   
-  async ngOnInit() {
-    this.previews = await Promise.all(this._firebaseService.getBlogPreviews());
+  public ngOnInit() {
+    this.previews = this._firebaseService.getBlogPreviews();
   }
 
 }

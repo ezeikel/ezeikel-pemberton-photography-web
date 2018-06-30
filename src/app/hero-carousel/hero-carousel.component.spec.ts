@@ -1,19 +1,32 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { environment } from '../../environments/environment';
 
 import { HeroCarouselComponent } from './hero-carousel.component';
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseService } from '../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireStorage } from 'angularfire2/storage';
 
-describe('FooterComponent', () => {
+describe('HeroCarouselComponent', () => {
   let component: HeroCarouselComponent;
   let fixture: ComponentFixture<HeroCarouselComponent>;
   let de, element;
 
   const year = (new Date()).getFullYear();
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
+      imports: [
+        AngularFireModule.initializeApp(environment.firebase)
+      ],
       declarations: [
         HeroCarouselComponent
       ],
+      providers: [
+        FirebaseService,
+        AngularFireDatabase,
+        AngularFireStorage
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroCarouselComponent);
@@ -24,7 +37,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should be created', async(() => {
+  it('should be created', (() => {
     expect(component).toBeTruthy();
   }));
 

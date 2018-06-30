@@ -15,8 +15,8 @@ export class HeroCarouselComponent implements OnInit {
 
   constructor(private _firebaseService: FirebaseService) {}
 
-  async ngOnInit() {
-    this.images = await this._firebaseService.getCarouselImages();
+  ngOnInit() {
+    this.images = this._firebaseService.getCarouselImages();
   }
 
 }
