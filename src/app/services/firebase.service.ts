@@ -1,62 +1,53 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, from } from 'rxjs';
+import { skipWhile } from 'rxjs/operators';
 
 @Injectable()
 export class FirebaseService {
-  public latest = [
-    {
-      title: 'Fari + Tino',
-      url: null,
-      firebaseRef: 'fari-tino'
-    },
-    {
-      title: 'Latrena + Pavel',
-      url: null,
-      firebaseRef: 'latrena-pavel'
-    },
-    {
-      title: 'Vicky + Nii',
-      url: null,
-      firebaseRef: 'vicky-nii'
-    }
-  ];
-
   constructor(private _db: AngularFireDatabase, private _storage: AngularFireStorage) {}
 
-  public getGalleryPreview(collection): any {
+  public getGalleryPreview(collection: string): any {
     if (!collection) {
       return;
     }
 
-    const ref = this._storage.ref(`gallery-preview/${collection}.jpg`);
+    const ref = this._getStorageUrl('gallery-preview', collection);
     return ref.getDownloadURL();
   }
 
-  public getBlogPreviews(): Array<object> {
-    return this.latest.map(item => {
-      const ref = this._storage.ref(`gallery-preview/${item.firebaseRef}.jpg`);
-      item.url = ref.getDownloadURL();
+  public getBlogPreviews(latest): Observable<any> {
+    const urls = [];
+
+    latest.forEach(item => {
+      const ref = this._getStorageUrl('gallery-preview', item.firebaseRef);
+      urls.push(ref.getDownloadURL());
+
       return item;
     });
+
+    return forkJoin(...urls);
   }
 
-  public getCarouselImages(): Array<Observable<string>> {
-    const count = 5;
-    const images = [];
+  public getCarouselImages(count: number): Observable<string[]> {
+    const imageUrls = [];
 
     for (let i = 1; i <= count; i++) {
-      const ref = this._storage.ref(`hero-carousel/slide-${i}.jpg`);
+      const ref = this._getStorageUrl('hero-carousel', `slide-${i}`);
       const url = ref.getDownloadURL()
-      images.push(url);
+      imageUrls.push(url);
     }
 
-    return images;
+    return forkJoin(...imageUrls).pipe(skipWhile(urls => urls.length === 0));
   }
 
   public getTestimonials(): Observable<any[]> {
     return this._db.list('testimonals').valueChanges();
+  }
+
+  private _getStorageUrl(node, firebaseRef) {
+    return this._storage.ref(`${node}/${firebaseRef}.jpg`);
   }
 
 }

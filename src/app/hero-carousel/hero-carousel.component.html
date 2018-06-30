@@ -1,8 +1,9 @@
 <div class="row">
   <div class="hero-carousel">
     <ul class="slides">
-      <li class="slide" *ngFor="let image of images" [ngStyle]="{'background-image': 'url(' + (image | async) + ')'}">
-      </li>
+      <ng-container *ngIf="$slides !== undefined">
+        <li class="slide" *ngFor="let slide of $slides | async"  [ngStyle]="{'background-image': 'url(' + slide + ')'}"></li>
+      </ng-container>
     </ul>
   </div>
 </div>

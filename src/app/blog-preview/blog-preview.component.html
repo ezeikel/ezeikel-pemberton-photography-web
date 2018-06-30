@@ -4,7 +4,7 @@
     <div class="blog-preview">
       <div class="preview" *ngFor="let preview of previews">
         <a routerLink="/blog/{{preview.firebaseRef}}">
-          <div class="preview__image" [ngStyle]="{'background-image': 'url(' + (preview?.url | async) + ')'}"></div>
+            <div class="preview__image" [ngStyle]="{'background-image': 'url(' + (preview.url) + ')'}"></div>
         </a>
         <h4 class="preview__info">{{ preview.title}}</h4>
       </div>

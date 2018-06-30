@@ -1,9 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FirebaseService } from '../services/firebase.service';
-import 'firebase/storage';
-
-// Import the Image interface
-import { Image } from '../models/image.interface';
 
 @Component({
   selector: 'ep-photography-hero-carousel',
@@ -11,12 +8,12 @@ import { Image } from '../models/image.interface';
   styleUrls: ['./hero-carousel.component.scss']
 })
 export class HeroCarouselComponent implements OnInit {
-  public images = [];
+  public $slides: Observable<any[]>
 
   constructor(private _firebaseService: FirebaseService) {}
 
   ngOnInit() {
-    this.images = this._firebaseService.getCarouselImages();
+    this.$slides = this._firebaseService.getCarouselImages(5)
   }
 
 }
