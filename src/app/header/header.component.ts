@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'ep-photography-header',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public home = false;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.router.events
+      .pipe(filter(val => val instanceof NavigationEnd))
+      .subscribe(val => {
+        if (val['url'] === '/' || val['url'] === '/home') {
+          this.home = true;
+        } else {
+          this.home = false;
+        }
+      });
   }
 
 }

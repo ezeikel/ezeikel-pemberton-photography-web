@@ -1,0 +1,7 @@
+@import "shared/variables";
+
+.containerr {
+  display: grid;
+  overflow-x: hidden;
+  grid-template-rows: 100px 1fr 100px;
+}

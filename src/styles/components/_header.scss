@@ -130,7 +130,7 @@
   top: 20px;
   z-index: 1;
   cursor: pointer;
-  >span {
+  > span {
     display: block; // margin: var(--spaciing-tiny) auto; TODO: Figure out why this doesnt work.
     margin-top: var(--spacing-tiny);
     margin-bottom: var(--spacing-tiny);
