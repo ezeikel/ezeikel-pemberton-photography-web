@@ -2,6 +2,7 @@
 
 .containerr {
   display: grid;
+  grid-template-rows: 100px 0 1fr 100px;
+  min-height: 100vh;
   overflow-x: hidden;
-  grid-template-rows: 100px 1fr 100px;
 }
