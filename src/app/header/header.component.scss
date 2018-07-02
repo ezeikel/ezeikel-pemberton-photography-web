@@ -1,8 +1,25 @@
 @import "shared/variables";
 
+:host.header--overlay {
+  @media (min-width: $bp-md) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+}
+
 .header {
   background-color: var(--color-primary);
-  margin-bottom: var(--spacing-large);
+  a {
+    color: var(--color-white);
+  }
+  &.header--overlay {
+    width: 100%;
+    background-color: transparent;
+  }
 }
 
 .header__nav {
@@ -17,10 +34,11 @@
 
 .header__menu {
   @media (min-width: $bp-md) {
-    .menu-item {
-      a {
-        &:after {
-          background-color: var(--color-white);
+    .menu-item a {
+      &:after {
+        background-color: var(--color-white);
+        .header--overlay & {
+          background-color: var(--color-primary);
         }
       }
     }
@@ -30,5 +48,183 @@
 .header__hamburger {
   > span {
     background-color: var(--color-primary);
+  }
+  .header--overlay & {
+    > span {
+      background-color: var(--color-white);
+    }
+    &.is-active {
+      > span:nth-child(1) {
+        background-color: var(--color-primary);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:nth-child(3) {
+        background-color: var(--color-primary);
+      }
+    } //TODO: Active state color should be picked up from `header.scss`
+  }
+}
+
+
+// TODO: These are the styles from the styles folder
+.header {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+    @media (min-width: $bp-md) {
+      a {
+        color: var(--color-white);
+      }
+    }
+}
+
+.header__nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding-top: var(--spacing-huge);
+  &.is-active {
+    position: fixed;
+    visibility: visible;
+  }
+  ul:first-of-type {
+    margin-top: var(--spacing-large);
+  }
+  @media (min-width: $bp-md) {
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    background-color: transparent;
+    padding-top: 0;
+    ul:first-of-type {
+      order: 1;
+      margin-right: var(--spacing-huge);
+      margin-top: 0;
+    }
+    ul:last-of-type {
+      order: 3;
+      margin-left: var(--spacing-huge);
+    }
+  }
+}
+
+.header__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 36px;
+  line-height: 55px;
+  text-transform: uppercase;
+  margin: 0;
+  .menu-item {
+    width: 150px;
+    text-align: center;
+    a {
+      font-size: 36px;
+      line-height: 55px;
+      text-transform: uppercase;
+    }
+  }
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    .menu-item {
+      display: flex;
+      justify-content: center;
+      a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: var(--default-font-size);
+        letter-spacing: 2px;
+        transition: color 0.2s ease-in-out;
+        overflow-x: hidden;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          background-color: var(--color-white);
+          height: 2px;
+          width: 50%;
+          bottom: 12px;
+          transform: translateX(-150%);
+          transition: transform 0.2s ease-in-out;
+        }
+        &:hover {
+          &:after {
+            transform: translatex(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.header__logo {
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  &-link {
+    display: block;
+    width: 200px;
+    height: 100px;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    &.is-active {
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-black.png?alt=media&token=de7f7996-2a0b-415c-babb-e5b4d4cf0546");
+    }
+  }
+  @media (min-width: $bp-md) {
+    order: 2;
+    &-link.is-active {
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+    }
+  }
+}
+
+.header__hamburger {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+  cursor: pointer;
+  > span {
+    display: block; // margin: var(--spaciing-tiny) auto; TODO: Figure out why this doesnt work.
+    margin-top: var(--spacing-tiny);
+    margin-bottom: var(--spacing-tiny);
+    margin-right: auto;
+    margin-left: auto;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  &.is-active {
+    position: fixed;
+    >span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      background-color: var(--color-primary);
+    }
+    >span:nth-child(2) {
+      opacity: 0;
+    }
+    >span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+      background-color: var(--color-primary);
+    }
+  }
+  @media (min-width: $bp-md) {
+    display: none;
   }
 }

@@ -21,7 +21,6 @@ import { ScrollDownComponent } from './scroll-down/scroll-down.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
-import { HeroHeaderComponent } from './hero-header/hero-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -38,7 +37,6 @@ import { AppRoutingModule } from './/app-routing.module';
     EqualValidatorDirective,
     BlogComponent,
     BlogPostComponent,
-    HeroHeaderComponent,
     FooterComponent,
     HeaderComponent
   ],
