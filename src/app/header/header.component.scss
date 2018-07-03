@@ -12,6 +12,9 @@
 }
 
 .header {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
   background-color: var(--color-primary);
   a {
     color: var(--color-white);
@@ -20,67 +23,13 @@
     width: 100%;
     background-color: transparent;
   }
+  @media (min-width: $bp-md) {
+    padding: var(--spacing-medium);
+  }
 }
 
 .header__nav {
   display: none;
-  &.is-active {
-    display: flex;
-  }
-  @media (min-width: $bp-md) {
-    display: flex;
-  }
-}
-
-.header__menu {
-  @media (min-width: $bp-md) {
-    .menu-item a {
-      &:after {
-        background-color: var(--color-white);
-        .header--overlay & {
-          background-color: var(--color-primary);
-        }
-      }
-    }
-  }
-}
-
-.header__hamburger {
-  > span {
-    background-color: var(--color-primary);
-  }
-  .header--overlay & {
-    > span {
-      background-color: var(--color-white);
-    }
-    &.is-active {
-      > span:nth-child(1) {
-        background-color: var(--color-primary);
-      }
-      > span:nth-child(2) {
-        opacity: 0;
-      }
-      > span:nth-child(3) {
-        background-color: var(--color-primary);
-      }
-    } //TODO: Active state color should be picked up from `header.scss`
-  }
-}
-
-
-// TODO: These are the styles from the styles folder
-.header {
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-    @media (min-width: $bp-md) {
-      a {
-        color: var(--color-white);
-      }
-    }
-}
-
-.header__nav {
   position: absolute;
   top: 0;
   right: 0;
@@ -92,6 +41,7 @@
   background-color: var(--color-white);
   padding-top: var(--spacing-huge);
   &.is-active {
+    display: flex;
     position: fixed;
     visibility: visible;
   }
@@ -158,6 +108,9 @@
           bottom: 12px;
           transform: translateX(-150%);
           transition: transform 0.2s ease-in-out;
+          .header--overlay & {
+            background-color: var(--color-primary);
+          }
         }
         &:hover {
           &:after {
@@ -212,17 +165,33 @@
   }
   &.is-active {
     position: fixed;
-    >span:nth-child(1) {
+    > span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
       background-color: var(--color-primary);
     }
-    >span:nth-child(2) {
+    > span:nth-child(2) {
       opacity: 0;
     }
-    >span:nth-child(3) {
+    > span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
       background-color: var(--color-primary);
     }
+  }
+  .header--overlay & {
+    > span {
+      background-color: var(--color-white);
+    }
+    &.is-active {
+      > span:nth-child(1) {
+        background-color: var(--color-primary);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:nth-child(3) {
+        background-color: var(--color-primary);
+      }
+    } //TODO: Active state color should be picked up from `header.scss`
   }
   @media (min-width: $bp-md) {
     display: none;

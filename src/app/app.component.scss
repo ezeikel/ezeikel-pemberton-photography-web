@@ -1,10 +1,14 @@
+@import "shared/variables";
+
 .container {
   position: relative;
   display: grid;
-  grid-template-rows: 100px 0 1fr 100px;
   min-height: 100vh;
   overflow-x: hidden;
-  &.container--header-overlay {
-    grid-template-rows: 0 0 1fr 100px;
+  @media (min-width: $bp-md) {
+    grid-template-rows: auto 0 1fr 100px;
+    &.container--header-overlay {
+      grid-template-rows: auto 1fr 100px;
+    }
   }
 }

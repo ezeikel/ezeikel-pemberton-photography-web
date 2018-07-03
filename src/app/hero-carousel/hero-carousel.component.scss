@@ -10,6 +10,10 @@
   margin-right: -100px;
 }
 
+.hero-carousel__wrapper {
+    position: relative;
+}
+
 .hero-carousel {
     overflow: hidden;
     width: 100%;
@@ -25,9 +29,9 @@
     width: 500%; /* Number of panes * 100% */
     overflow: hidden; /* Clear floats */
     /* Slide effect Animations*/
-    -moz-animation: carousel 30s infinite;
-    -webkit-animation: carousel 30s infinite;
-    animation: carousel 30s infinite;
+    // -moz-animation: carousel 30s infinite;
+    // -webkit-animation: carousel 30s infinite;
+    //animation: carousel 30s infinite;
 }
 .slides > .slide {
     position: relative;
