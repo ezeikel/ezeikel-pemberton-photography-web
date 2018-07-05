@@ -1,27 +1,32 @@
+@import "shared/variables";
+
 .footer {
-    display: flex;
-    flex-direction: column;
-    min-height: 60px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    place-items: center;
+    grid-row-gap: var(--spacing-large);
     padding: var(--spacing-medium);
     background-color: var(--color-primary);
     color: var(--color-white);
 }
 
 .footer__social-links {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     width: 100%;
-    li + li {
-        margin-left: var(--spacing-large);
-    }
+    margin: 0;
     a {
         color: var(--color-white);
     }
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(4, 100px);
+    width: auto;
+  }
 }
 
 .footer__copyright {
-    display: inline-block;
-    width: 100%;
+    display: block;
     text-align: center;
     font-weight: 200;
 }
