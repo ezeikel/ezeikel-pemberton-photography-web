@@ -35,7 +35,6 @@
     left: 0;
     z-index: 1;
     visibility: hidden;
-    flex-direction: column;
     background-color: var(--color-white);
     padding-top: var(--spacing-huge);
     &.is-active {
