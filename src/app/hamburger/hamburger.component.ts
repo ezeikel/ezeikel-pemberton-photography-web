@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ep-photography-hamburger',
@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HamburgerComponent implements OnInit {
   public isActive = false;
+  @Output() active = new EventEmitter<boolean>();
 
   constructor() { }
 
   public toggleActive() {
     this.isActive = !this.isActive;
+    this.active.emit(this.isActive);
   }
 
   ngOnInit() {

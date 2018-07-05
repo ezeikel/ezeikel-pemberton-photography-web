@@ -21,7 +21,6 @@
     padding: var(--spacing-medium);
   }
   &__nav {
-    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -33,7 +32,8 @@
     background-color: var(--color-white);
     padding-top: var(--spacing-huge);
     &.is-active {
-      display: flex;
+      display: grid;
+      align-content: start;
       position: fixed;
       visibility: visible;
     }
@@ -59,6 +59,8 @@
   }
   &__logo {
     visibility: visible;
+    display: grid;
+    justify-items: center;
     @media (min-width: $bp-md) {
       order: 2;
     }
@@ -67,6 +69,8 @@
     display: block;
     width: 200px;
     height: 100px;
+    // TODO: Need a way to tell if we are on homepage and switch this from white to black accordingly
+    // Can replace the use of `home` property in here and in app.component
     background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
     background-repeat: no-repeat;
     background-size: contain;
@@ -88,6 +92,12 @@
     line-height: 55px;
     text-transform: uppercase;
     margin: 0;
+    .header__nav.is-active & {
+      display : grid;
+      grid-template-rows : 1fr 1fr;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
     .menu-item {
       width: 150px;
       text-align: center;
@@ -95,6 +105,9 @@
         font-size: 36px;
         line-height: 55px;
         text-transform: uppercase;
+        .header__nav.is-active & {
+          color: var(--color-black);
+        }
       }
     }
     @media (min-width: $bp-md) {

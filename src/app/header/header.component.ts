@@ -8,7 +8,8 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public home = false;
+  home = false;
+  hamburgerActive = false;
 
   constructor(private router: Router) {}
 
@@ -22,6 +23,10 @@ export class HeaderComponent implements OnInit {
           this.home = false;
         }
       });
+  }
+
+  onHamburgerClick(active: boolean) {
+    this.hamburgerActive = active;
   }
 
 }
