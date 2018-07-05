@@ -7,7 +7,7 @@
   overflow-x: hidden;
   @media (min-width: $bp-md) {
     grid-template-rows: auto 0 1fr 100px;
-    &.container--header-overlay {
+    &.container--homepage {
       grid-template-rows: auto 1fr 100px;
     }
   }

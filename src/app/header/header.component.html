@@ -1,7 +1,7 @@
-<header class="header" [ngClass]="{'header--overlay': home}">
-<nav class="header__nav" [ngClass]="{'is-active': hamburgerActive}">
+<header class="header">
+<nav class="header__nav" [ngClass]="{'is-active': menuActive}">
     <div class="header__logo">
-      <a class="header__logo-link" [ngClass]="{'is-active': hamburgerActive}" routerLink="/"></a>
+      <a class="header__logo-link" [ngClass]="{'is-active': menuActive}" routerLink="/"></a>
     </div>
     <ul class="header__menu">
       <li class="menu-item">
@@ -20,5 +20,5 @@
       </li>
     </ul>
   </nav>
-  <ep-photography-hamburger (active)="onHamburgerClick($event)"></ep-photography-hamburger>
+  <ep-photography-hamburger (active)="toggleMenu($event)"></ep-photography-hamburger>
 </header>

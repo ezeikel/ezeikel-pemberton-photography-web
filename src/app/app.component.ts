@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public home = false;
+  public homepage = false;
 
   constructor(private router: Router) {}
 
@@ -18,9 +18,9 @@ export class AppComponent implements OnInit {
       .pipe(filter(val => val instanceof NavigationEnd))
       .subscribe(val => {
         if (val['url'] === '/' || val['url'] === '/home') {
-          this.home = true;
+          this.homepage = true;
         } else {
-          this.home = false;
+          this.homepage = false;
         }
       });
   }

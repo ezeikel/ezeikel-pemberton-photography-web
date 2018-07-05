@@ -1,19 +1,25 @@
 @import "shared/variables";
 
-:host.header--overlay {
+:host.header--homepage {
+  .header {
+    background-color: transparent;
+  }
+
   @media (min-width: $bp-md) {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
+    .header {
+      .menu-item a:after {
+        background-color: var(--color-primary);
+      }
+    }
   }
 }
 
 .header {
   background-color: var(--color-primary);
-  &.header--overlay {
-    background-color: transparent;
-  }
   a {
     color: var(--color-white);
   }
@@ -71,16 +77,16 @@
     height: 100px;
     // TODO: Need a way to tell if we are on homepage and switch this from white to black accordingly
     // Can replace the use of `home` property in here and in app.component
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+    background-image: url("../../assets/logo-white.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     &.is-active {
-      background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-black.png?alt=media&token=de7f7996-2a0b-415c-babb-e5b4d4cf0546");
+      background-image: url("../../assets/logo-black.png");
     }
     @media (min-width: $bp-md) {
       &.is-active {
-        background-image: url("https://firebasestorage.googleapis.com/v0/b/ezeikel-pemberton-photography.appspot.com/o/logo%2Flogo-white.png?alt=media&token=c6423558-01c9-4aff-9c8e-99bc636145f9");
+        background-image: url("../../assets/logo-white.png");
       }
     }
   }
@@ -130,9 +136,6 @@
             bottom: 12px;
             transform: translateX(-150%);
             transition: transform 0.2s ease-in-out;
-            .header--overlay & {
-              background-color: var(--color-primary);
-            }
           }
           &:hover {
             &:after {
