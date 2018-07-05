@@ -24,6 +24,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HamburgerComponent } from './hamburger/hamburger.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AppRoutingModule } from './/app-routing.module';
     BlogComponent,
     BlogPostComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HamburgerComponent
   ],
   imports: [
     BrowserModule,

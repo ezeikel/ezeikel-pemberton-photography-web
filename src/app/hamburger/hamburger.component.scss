@@ -1,0 +1,53 @@
+@import "shared/variables";
+
+.hamburger {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+  cursor: pointer;
+  > span {
+    display: block; // margin: var(--spaciing-tiny) auto; TODO: Figure out why this doesnt work.
+    margin-top: var(--spacing-tiny);
+    margin-bottom: var(--spacing-tiny);
+    margin-right: auto;
+    margin-left: auto;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  &.is-active {
+    position: fixed;
+    > span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      background-color: var(--color-primary);
+    }
+    > span:nth-child(2) {
+      opacity: 0;
+    }
+    > span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+      background-color: var(--color-primary);
+    }
+  }
+  .header--overlay & {
+    > span {
+      background-color: var(--color-white);
+    }
+    &.is-active {
+      > span:nth-child(1) {
+        background-color: var(--color-primary);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:nth-child(3) {
+        background-color: var(--color-primary);
+      }
+    } //TODO: Active state color should be picked up from `header.scss`
+  }
+  @media (min-width: $bp-md) {
+    display: none;
+  }
+}
