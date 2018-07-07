@@ -1,15 +1,42 @@
 @import "shared/variables";
 @import "shared/mixins";
 
-.text {
-    margin-bottom: var(--spacing-large);
+  :host {
+    display: grid;
+    grid-row-gap: var(--spacing-large);
+    grid-template-rows: 1fr auto auto;
+  }
+
+  .copy {
     display: flex;
     flex-direction: column;
     align-items: center;
-    p:last-of-type {
-      margin-bottom: var(--spacing-large);
+    padding: 0 var(--spacing-large) 0;
+
+    
+    * {
+      margin: 0;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 32px;
+      margin-bottom: var(--spacing-medium);
+    }
+    p {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: var(--spacing-medium);
     }
     .btn {
       @include button(var(--color-primary));
+    }
+    @media (min-width: $bp-md) {
+      h2 {
+        margin-bottom: var(--spacing-large);
+      }
+      p {
+        text-align: left;
+        width: 100%;
+      }
     }
   }

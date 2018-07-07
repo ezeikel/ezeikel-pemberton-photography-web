@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:post', component: BlogPostComponent },
-  { path: 'get-in-touch', component: ContactFormComponent },
+  { path: 'contact', component: ContactFormComponent },
   {
     path: '',
     redirectTo: '/home',

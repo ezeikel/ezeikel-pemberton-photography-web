@@ -1,8 +1,5 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1 0 auto;
+  display: grid;
 }
 
 .preview__image {
@@ -10,6 +7,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 300px;
-  width: 100%;
 }
