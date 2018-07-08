@@ -1,3 +1,10 @@
+@import "shared/variables";
+@import "shared/mixins";
+
+:host {
+  margin-bottom: var(--spacing-huge);
+}
+
 .logo {
   width: 200px;
   height: 100px;
@@ -11,55 +18,92 @@
 }
 
 .hero-carousel__wrapper {
-    position: relative;
+  position: relative;
 }
 
 .hero-carousel {
-    overflow: hidden;
-    width: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .slides {
-    height: 100vh;
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    position: relative;
-    width: 500%; /* Number of panes * 100% */
-    overflow: hidden; /* Clear floats */
-    /* Slide effect Animations*/
-    -moz-animation: carousel 30s infinite;
-    -webkit-animation: carousel 30s infinite;
-    animation: carousel 30s infinite;
+  height: 100vh;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+  width: 500%;
+  /* Number of panes * 100% */
+  overflow: hidden;
+  /* Clear floats */
+  /* Slide effect Animations*/
+  -moz-animation: carousel 30s infinite;
+  -webkit-animation: carousel 30s infinite;
+  animation: carousel 30s infinite;
 }
-.slides > .slide {
-    position: relative;
-    float: left;
-    width: 20%; /* 100 / number of panes */
 
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    filter: brightness(80%);
+.slides>.slide {
+  position: relative;
+  float: left;
+  width: 20%;
+  /* 100 / number of panes */
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  filter: brightness(80%);
 }
 
 @keyframes carousel {
-    0%    { left:0%; }
-    11%   { left:0%; }
-    12.5% { left:-100%; }
-    23.5% { left:-100%; }
-    25%   { left:-200%; }
-    36%   { left:-200%; }
-    37.5% { left:-300%; }
-    48.5% { left:-300%; }
-    50%   { left:-400%; }
-    61%   { left:-400%; }
-    62.5% { left:-300%; }
-    73.5% { left:-300%; }
-    75%   { left:-200%; }
-    86%   { left:-200%; }
-    87.5% { left:-100%; }
-    98.5% { left:-100%; }
-    100%  { left:0%; }
+  0% {
+    left: 0%;
+  }
+  11% {
+    left: 0%;
+  }
+  12.5% {
+    left: -100%;
+  }
+  23.5% {
+    left: -100%;
+  }
+  25% {
+    left: -200%;
+  }
+  36% {
+    left: -200%;
+  }
+  37.5% {
+    left: -300%;
+  }
+  48.5% {
+    left: -300%;
+  }
+  50% {
+    left: -400%;
+  }
+  61% {
+    left: -400%;
+  }
+  62.5% {
+    left: -300%;
+  }
+  73.5% {
+    left: -300%;
+  }
+  75% {
+    left: -200%;
+  }
+  86% {
+    left: -200%;
+  }
+  87.5% {
+    left: -100%;
+  }
+  98.5% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
 }

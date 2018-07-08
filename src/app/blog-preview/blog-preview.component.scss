@@ -7,6 +7,10 @@
 
 .blog-preview-title {
   margin-bottom: var(--spacing-large);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .blog-previews {
@@ -38,5 +42,5 @@
 .preview__info {
   margin: 0;
   text-transform: uppercase;
-  font-weight: 200;
+  font-weight: 300;
 }
