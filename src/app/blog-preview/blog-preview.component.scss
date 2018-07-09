@@ -5,14 +5,6 @@
   margin-bottom: var(--spacing-large);
 }
 
-.blog-preview-title {
-  margin-bottom: var(--spacing-large);
-  font-size: 24px;
-  line-height: 30px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
 .blog-previews {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
