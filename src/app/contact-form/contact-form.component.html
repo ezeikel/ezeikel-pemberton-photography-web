@@ -6,26 +6,27 @@
     <section class="form__name">
       <fieldset>
         <label for="first-name">First name</label>
+        <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" autocomplete="off" required />
         <div *ngIf="firstName.invalid && (firstName.dirty && firstName.touched)" class="error">
           <div *ngIf="firstName.errors.required" class="error__message">
             First name is required.
           </div>
         </div>
-        <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" autocomplete="off" required />
       </fieldset>
       <fieldset>
         <label for="last-name">Last name</label>
+        <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" autocomplete="off" required />
         <div *ngIf="lastName.invalid && (lastName.dirty && lastName.touched)" class="error">
           <div *ngIf="lastName.errors.required" class="error__message">
             Last name is required.
           </div>
         </div>
-        <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" autocomplete="off" required />
       </fieldset>
     </section>
     <section class="form__email">
       <fieldset>
         <label for="email">Email</label>
+        <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email autocomplete="off" autocapitalize="off" required />
         <div *ngIf="email.invalid && (email.dirty && email.touched)" class="error">
           <div *ngIf="email.errors.required" class="error__message">
             Email is required.
@@ -34,9 +35,10 @@
             Email must be in a valid format.
           </div>
         </div>
-        <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email autocomplete="off" autocapitalize="off" required />
         <div *ngIf="email.valid && (email.dirty && email.touched)">
           <label for="email-confirm">Email (Confirm)</label>
+          <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}"
+            validateEqual="email" autocomplete="off" autocapitalize="off" required />
           <div *ngIf="emailConfirm.invalid && (emailConfirm.dirty || emailConfirm.touched)" class="error">
             <div *ngIf="emailConfirm.errors.required" class="error__message">
               Please confirm your email address.
@@ -46,48 +48,46 @@
             </div>
             <!-- TODO: Need to get custom validateEqual to work -->
             <!-- <div *ngIf="!emailConfirm.errors.validateEqual">
-                  Emails do not match.
-                </div> -->
+                            Emails do not match.
+                          </div> -->
           </div>
-          <input [(ngModel)]="lead.EmailConfirm" #emailConfirm="ngModel" type="email" name="email-confirm" placeholder="{{lead.Email}}"
-            validateEqual="email" autocomplete="off" autocapitalize="off" required />
         </div>
       </fieldset>
     </section>
     <section class="form__phone">
       <fieldset>
         <label for="tel">Phone number</label>
+        <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" minlength="11" maxlength="11" required/>
         <div *ngIf="phone.invalid && (phone.dirty && phone.touched)" class="error">
           <div *ngIf="phone.errors.required" class="error__message">
             Phone number is required.
           </div>
         </div>
-        <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" minlength="11" maxlength="11" required/>
       </fieldset>
     </section>
     <section class="form__occasion">
       <fieldset>
         <label for="job-type">What is the occasion?</label>
+        <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
+          <option value="" disabled selected hidden>Please select an option</option>
+          <option *ngFor="let jobType of _jobTypes" [ngValue]="jobType">{{jobType}}</option>
+        </select>
         <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error">
           <div *ngIf="jobType.errors.required" class="error__message">
             An occasion is required.
           </div>
         </div>
-        <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
-          <option value="" disabled selected hidden>Please select an option</option>
-          <option *ngFor="let jobType of _jobTypes" [ngValue]="jobType">{{jobType}}</option>
-        </select>
       </fieldset>
     </section>
     <section class="form__date">
       <fieldset>
         <label for="tel">What date did you have in mind?</label>
+        <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" autocomplete="off" required/>
         <div *ngIf="date.invalid && (date.dirty && date.touched)" class="error">
           <div *ngIf="date.errors.required" class="error__message">
             Date is required.
           </div>
         </div>
-        <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" autocomplete="off" required/>
       </fieldset>
     </section>
     <section class="form__message">
