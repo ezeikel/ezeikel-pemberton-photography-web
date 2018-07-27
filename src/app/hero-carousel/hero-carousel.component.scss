@@ -3,6 +3,9 @@
 
 :host {
   margin-bottom: var(--spacing-huge);
+  @media(min-width: $bp-md) {
+    margin-bottom: 0;
+  }
 }
 
 .logo {

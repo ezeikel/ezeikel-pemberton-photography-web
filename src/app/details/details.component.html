@@ -1,0 +1,21 @@
+<section class="details">
+  <div class="details__item" *ngFor="let item of items; let i = index" [ngClass]="{'alternate': i % 2 !== 0}">
+    <div class="item__copy">
+      {{ item.copy }}
+    </div>
+    <div class="item__image" [style.backgroundImage]="'url('+ item.imageUrl +')'">
+    </div>
+  </div>
+</section>
+
+<!-- <div class="hero-carousel__wrapper">
+  <div class="hero-carousel">
+    <ul class="slides">
+      <ng-container *ngIf="$slides !== undefined">
+        <li class="slide" *ngFor="let slide of $slides | async" [ngStyle]="{'background-image': 'url(' + slide + ')'}"></li>
+      </ng-container>
+    </ul>
+  </div>
+  <ep-photography-scroll-down></ep-photography-scroll-down>
+</div> -->
+
