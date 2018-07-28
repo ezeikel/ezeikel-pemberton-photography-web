@@ -2,6 +2,9 @@
   <div class="details__item" *ngFor="let item of items; let i = index" [ngClass]="{'alternate': i % 2 !== 0}">
     <div class="item__copy">
       {{ item.copy }}
+      <button *ngIf="item.cta" class="item__cta">
+        <a [routerLink]="['./']" fragment="contact">Get in touch</a>
+      </button>
     </div>
     <div class="item__image" [style.backgroundImage]="'url('+ item.imageUrl +')'">
     </div>

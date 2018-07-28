@@ -37,6 +37,21 @@
           padding: var(--spacing-huge);
         }
       }
+      &__cta {
+        text-transform: uppercase;
+        margin-bottom: 0;
+        a {
+          color: var(--color-white);
+          transition: all 0.2s ease-in-out;
+          border: 2px solid var(--color-white);
+          padding: var(--spacing-medium) var(--spacing-large);
+          font-size: 18px;
+          &:hover {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+          }
+        }
+      }
       &__image {
         background-repeat: no-repeat;
         background-size: cover;
