@@ -1,10 +1,10 @@
 <div class="form__wrapper">
   <div *ngIf="submitted" class="form__submit-message form__submit-message--success">
-    <p>Thank you for contacting us {{firstName | capitalize}}. We will get back to you as soon as we can to discuss your upcoming {{event | capitalize}}.</p>
+    <p>Thank you for contacting us {{_firstName | capitalize}}. We will get back to you as soon as we can to discuss your upcoming {{_event | capitalize}}.</p>
   </div>
   <form class="form" [attr.disabled]="submitted" (ngSubmit)="onSubmit();contactForm.reset()" #contactForm="ngForm">
-    <section class="form__name">
-      <fieldset>
+    <section class="form__field form__name">
+      <div class="fieldset">
         <label for="first-name">First name</label>
         <input [(ngModel)]="lead.FirstName" #firstName="ngModel" type="text" name="first-name" placeholder="Beyoncé" autocomplete="off" required />
         <div *ngIf="firstName.invalid && (firstName.dirty && firstName.touched)" class="error">
@@ -12,8 +12,8 @@
             First name is required.
           </div>
         </div>
-      </fieldset>
-      <fieldset>
+      </div>
+      <div class="fieldset">
         <label for="last-name">Last name</label>
         <input [(ngModel)]="lead.LastName" #lastName="ngModel" type="text" name="last-name" placeholder="Knowles" autocomplete="off" required />
         <div *ngIf="lastName.invalid && (lastName.dirty && lastName.touched)" class="error">
@@ -21,10 +21,10 @@
             Last name is required.
           </div>
         </div>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__email">
-      <fieldset>
+    <section class="form__field form__email">
+      <div class="fieldset">
         <label for="email">Email</label>
         <input [(ngModel)]="lead.Email" #email="ngModel" type="email" name="email" placeholder="beyonce@knowles.com" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" email autocomplete="off" autocapitalize="off" required />
         <div *ngIf="email.invalid && (email.dirty && email.touched)" class="error">
@@ -52,10 +52,10 @@
                           </div> -->
           </div>
         </div>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__phone">
-      <fieldset>
+    <section class="form__field form__phone">
+      <div class="fieldset">
         <label for="tel">Phone number</label>
         <input [(ngModel)]="lead.MobilePhone" #phone="ngModel" type="tel" name="tel" placeholder="07953005302" autocomplete="off" minlength="11" maxlength="11" required/>
         <div *ngIf="phone.invalid && (phone.dirty && phone.touched)" class="error">
@@ -63,10 +63,10 @@
             Phone number is required.
           </div>
         </div>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__occasion">
-      <fieldset>
+    <section class="form__field form__occasion">
+      <div class="fieldset">
         <label for="job-type">What is the occasion?</label>
         <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
           <option value="" disabled selected hidden>Please select an option</option>
@@ -77,10 +77,10 @@
             An occasion is required.
           </div>
         </div>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__date">
-      <fieldset>
+    <section class="form__field form__date">
+      <div class="fieldset">
         <label for="tel">What date did you have in mind?</label>
         <input [(ngModel)]="lead.EventDate" #date="ngModel" type="date" name="date" autocomplete="off" required/>
         <div *ngIf="date.invalid && (date.dirty && date.touched)" class="error">
@@ -88,15 +88,15 @@
             Date is required.
           </div>
         </div>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__message">
-      <fieldset>
+    <section class="form__field form__message">
+      <div class="fieldset">
         <label for="message">Message</label>
         <textarea [(ngModel)]="lead.Message" #message="ngModel" type="text" name="message" placeholder="Hi, I'm getting married next August and would love for you to shoot our wedding." maxlength="160" autocomplete="off"></textarea>
-      </fieldset>
+      </div>
     </section>
-    <section class="form__submit">
+    <section class="form__field form__submit">
       <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
     </section>
   </form>
