@@ -30,6 +30,8 @@
         padding: var(--spacing-medium);
         color: var(--text-color);
         font-weight: 300;
+        display: grid;
+        grid-row-gap: var(--spacing-large);
         @media(min-width: $bp-md) {
           font-size: 32px;
           display: grid;
