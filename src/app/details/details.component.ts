@@ -9,15 +9,15 @@ export class DetailsComponent implements OnInit {
   public items = [
     {
       copy: 'We are a team of photographers based in London, UK who specialise in documenting those moments that will live on in the memory for a lifetime.',
-      imageUrl: 'https://bit.ly/2NRje8m'
+      imageUrl: 'https://bit.ly/2AiGY3i'
     },
     {
       copy: 'We use every last drop of our creative juices to tell your story in the most unique way, while keeping as true as we can to the emotions and feelings at that time.',
-      imageUrl: 'https://bit.ly/2NRje8m'
+      imageUrl: 'https://bit.ly/2OogaBG'
     },
     {
       copy: 'Our ultimate goal is to have our clients re-ignite those emotions and feelings everytime they look at our work.',
-      imageUrl: 'https://bit.ly/2NRje8m'
+      imageUrl: 'https://bit.ly/2uZKM4k'
     }
   ];
 

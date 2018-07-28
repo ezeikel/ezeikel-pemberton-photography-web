@@ -16,8 +16,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .pipe(filter(val => val instanceof NavigationEnd))
-      .subscribe(val => {
-        if (val['url'] === '/' || val['url'] === '/home') {
+      .subscribe((val: { id, url, urlAfterRedirects }) => {
+        const url = val.url.split('#');
+        if (url[0] === '/' || url[0] === '/home') {
           this.homepage = true;
         } else {
           this.homepage = false;
