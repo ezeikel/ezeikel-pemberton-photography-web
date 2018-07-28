@@ -29,6 +29,7 @@
       &__copy {
         padding: var(--spacing-medium);
         color: var(--text-color);
+        font-weight: 300;
         @media(min-width: $bp-md) {
           font-size: 32px;
           display: grid;
