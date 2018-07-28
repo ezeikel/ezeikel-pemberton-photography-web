@@ -26,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HamburgerComponent } from './hamburger/hamburger.component';
 import { DetailsComponent } from './details/details.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DetailsComponent } from './details/details.component';
     FooterComponent,
     HeaderComponent,
     HamburgerComponent,
-    DetailsComponent
+    DetailsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
