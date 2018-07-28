@@ -15,6 +15,9 @@
       margin: 0;
       text-align: left;
       line-height: 1.4;
+      a, a:visited, a:active, a:link, a:focus {
+        color: var(--color-primary);
+      }
     }
   }
   @media(min-width: $bp-md) {
@@ -24,9 +27,6 @@
       padding: 0 var(--spacing-huge) 0 var(--spacing-medium);
       p {
         font-size: 24px;
-        a, a:visited, a:active, a:link, a:focus {
-          color: var(--color-primary);
-        }
       }
     }
     &__form {
