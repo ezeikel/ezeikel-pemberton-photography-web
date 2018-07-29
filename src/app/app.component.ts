@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -8,12 +8,15 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   public homepage = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.router.events
       .pipe(filter(val => val instanceof NavigationEnd))
       .subscribe((val: { id, url, urlAfterRedirects }) => {
