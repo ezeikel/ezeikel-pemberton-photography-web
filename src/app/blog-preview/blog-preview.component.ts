@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ep-photography-blog-preview',

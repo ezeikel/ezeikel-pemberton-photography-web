@@ -16,11 +16,11 @@
   }
   &__item {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 300px;
     grid-row-gap: var(--spacing-large);
     font-size: 24px;
-    height: 500px;
     @media(min-width: $bp-md) {
+      height: 500px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: none;
       grid-row-gap: 0;

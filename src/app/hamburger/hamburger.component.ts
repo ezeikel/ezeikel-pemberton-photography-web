@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UiService } from '../services/ui.service';
 
 @Component({
   selector: 'ep-photography-hamburger',
@@ -7,16 +8,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HamburgerComponent implements OnInit {
   public isActive = false;
-  @Output() active = new EventEmitter<boolean>();
 
-  constructor() { }
-
-  public toggleActive() {
-    this.isActive = !this.isActive;
-    this.active.emit(this.isActive);
-  }
+  constructor(private _uiService: UiService) { }
 
   ngOnInit() {
+    this._uiService.getMobileNavStatus()
+      .subscribe(val => {
+        this.isActive = val;
+      });
   }
-
+  
+  public toggleActive() {
+    this._uiService.toggleMobileNav();
+  }
 }

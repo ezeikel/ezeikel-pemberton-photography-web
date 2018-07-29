@@ -10,6 +10,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { environment } from './../environments/environment';
 import { TaveApiService } from './services/tave-api.service'
 import { FirebaseService } from './services/firebase.service';
+import { UiService } from './services/ui.service';
 import { EqualValidatorDirective } from './directives/equals-validator.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
@@ -57,7 +58,8 @@ import { ContactComponent } from './contact/contact.component';
   ],
   providers: [
     TaveApiService,
-    FirebaseService
+    FirebaseService,
+    UiService
   ],
   bootstrap: [ AppComponent ]
 })

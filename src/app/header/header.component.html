@@ -1,24 +1,24 @@
 <header class="header">
-<nav class="header__nav" [ngClass]="{'is-active': menuActive}">
+<nav class="header__nav" [ngClass]="{'is-active': mobileNavActive}">
     <div class="header__logo">
-      <a class="header__logo-link" [ngClass]="{'is-active': menuActive}" routerLink="/"></a>
+      <a class="header__logo-link" [ngClass]="{'is-active': mobileNavActive}" routerLink="/"></a>
     </div>
     <ul class="header__menu">
       <li class="menu-item">
-        <a routerLink="/">Home</a>
+        <a routerLink="/" (click)="closeMenu()">Home</a>
       </li>
       <li class="menu-item">
-        <a routerLink="/blog">Blog</a>
+        <a routerLink="/blog" (click)="closeMenu()">Blog</a>
       </li>
     </ul>
     <ul class="header__menu">
       <li class="menu-item">
-        <a href="http://clients.ezeikelpemberton.com">Clients</a>
+        <a href="http://clients.ezeikelpemberton.com" (click)="closeMenu()">Clients</a>
       </li>
       <li class="menu-item">
-        <a [routerLink]="['/home']" fragment="contact">Get in touch</a>
+        <a [routerLink]="['/home']" fragment="contact" (click)="closeMenu()">Get in touch</a>
       </li>
     </ul>
   </nav>
-  <ep-photography-hamburger (active)="toggleMenu($event)"></ep-photography-hamburger>
+  <ep-photography-hamburger></ep-photography-hamburger>
 </header>

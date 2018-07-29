@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../services/ui.service';
 
 @Component({
   selector: 'ep-photography-header',
@@ -6,15 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  menuActive = false;
+  public mobileNavActive;
 
-  constructor() {}
+  constructor(private _uiService: UiService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
+    this._uiService.getMobileNavStatus()
+      .subscribe(val => {
+        this.mobileNavActive = val;
+      });
   }
 
-  toggleMenu(active: boolean) {
-    this.menuActive = active;
+  public closeMenu() {
+    this._uiService.toggleMobileNav(false);
   }
 
 }
