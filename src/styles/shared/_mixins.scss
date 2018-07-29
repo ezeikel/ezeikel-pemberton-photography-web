@@ -1,15 +1,25 @@
 /* Mixins */
 
 @mixin button($color: var(--color-white)) {
-    margin-bottom: var(--spacing-medium);
-    a {
-        color: $color;
-        transition: all 0.2s ease-in-out;
-        border: 2px solid $color;
-        padding: var(--spacing-medium) var(--spacing-large);
-        &:hover {
-            background-color: $color;
-            color: var(--color-white);
-        }
-    }
+  margin-bottom: var(--spacing-medium);
+  a {
+  color: $color;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid $color;
+  padding: var(--spacing-medium) var(--spacing-large);
+  &:hover {
+    background-color: $color;
+    color: var(--color-white);
+  }
+  }
+}
+
+@mixin heading() {
+  font-size: 42px;
+  margin-bottom: 0;
+  padding: var(--spacing-medium);
+  @media (min-width: $bp-md) {
+    font-size: 48px;
+    padding: var(--spacing-large);
+  }
 }

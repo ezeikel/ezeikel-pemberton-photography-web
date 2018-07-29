@@ -9,6 +9,13 @@
   padding: var(--spacing-medium);
   display: grid;
   grid-row-gap: var(--spacing-large);
+  &__title {
+    @include heading;
+    @media(min-width: $bp-md) {
+      span: 1 / span 1;
+    }
+
+  }
   &__copy {
     font-size: 24px;
     p {
