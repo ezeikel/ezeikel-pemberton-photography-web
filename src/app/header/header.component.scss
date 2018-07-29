@@ -40,11 +40,9 @@
     &.is-active {
       display: grid;
       align-content: start;
+      grid-row-gap: var(--spacing-medium);
       position: fixed;
       visibility: visible;
-    }
-    ul:first-of-type {
-      margin-top: var(--spacing-large);
     }
     @media (min-width: $bp-md) {
       position: relative;
@@ -56,7 +54,6 @@
       padding-top: 0;
       ul:first-of-type {
         order: 1;
-        margin-top: 0;
       }
       ul:last-of-type {
         order: 3;
@@ -75,8 +72,6 @@
     display: block;
     width: 200px;
     height: 100px;
-    // TODO: Need a way to tell if we are on homepage and switch this from white to black accordingly
-    // Can replace the use of `home` property in here and in app.component
     background-image: url("../../assets/logo-white.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -94,10 +89,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    grid-row-gap: var(--spacing-medium);
     font-size: 36px;
     line-height: 55px;
     text-transform: uppercase;
     margin: 0;
+    @media (min-width: $bp-md) {
+      grid-row-gap: 0;
+    }
     .header__nav.is-active & {
       display : grid;
       grid-template-rows : 1fr 1fr;
@@ -105,7 +104,6 @@
       justify-items: center;
     }
     .menu-item {
-      width: 150px;
       text-align: center;
       a {
         font-size: 36px;
@@ -118,6 +116,7 @@
     }
     @media (min-width: $bp-md) {
       .menu-item {
+        width: 150px;
         display: grid;
         justify-items: center;
         a {
