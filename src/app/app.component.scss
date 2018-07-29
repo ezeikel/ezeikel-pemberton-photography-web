@@ -3,16 +3,16 @@
 .container {
   position: relative;
   display: grid;
-  grid-template-rows: 100px 0 1fr 100px;
+  grid-template-rows: 100px 0 1fr minmax(100px, auto);
   min-height: 100vh;
   overflow-x: hidden;
   &.container--homepage {
-    grid-template-rows: 0 0 1fr 100px;
+    grid-template-rows: 0 0 1fr minmax(100px, auto);
   }
   @media (min-width: $bp-md) {
-    grid-template-rows: auto 0 1fr 100px;
+    grid-template-rows: auto 0 1fr minmax(100px, auto);
     &.container--homepage {
-      grid-template-rows: auto 1fr 100px;
+      grid-template-rows: auto 1fr minmax(100px, auto);
     }
   }
 }
