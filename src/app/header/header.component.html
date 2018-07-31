@@ -1,7 +1,9 @@
 <header class="header">
 <nav class="header__nav" [ngClass]="{'is-active': mobileNavActive}">
-    <div class="header__logo">
-      <a class="header__logo-link" [ngClass]="{'is-active': mobileNavActive}" routerLink="/"></a>
+    <div class="header__logo-wrapper">
+      <a class="header__logo-link" routerLink="/">
+        <ep-photography-logo [ngClass]="{'is-active': mobileNavActive}"></ep-photography-logo>
+      </a>
     </div>
     <ul class="header__menu">
       <li class="menu-item">
