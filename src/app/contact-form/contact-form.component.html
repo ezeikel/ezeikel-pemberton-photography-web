@@ -70,7 +70,7 @@
         <label for="job-type">What is the occasion?</label>
         <select [(ngModel)]="lead.JobType" #jobType="ngModel" name="job-type" required>
           <option value="" disabled selected hidden>Please select an option</option>
-          <option *ngFor="let jobType of _jobTypes" [ngValue]="jobType">{{jobType}}</option>
+          <option *ngFor="let jobType of JOBTYPES" [ngValue]="jobType">{{jobType}}</option>
         </select>
         <div *ngIf="jobType.invalid && (jobType.dirty || jobType.touched)" class="error">
           <div *ngIf="jobType.errors.required" class="error__message">
