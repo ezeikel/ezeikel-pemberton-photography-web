@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  public closeMenu() {
+  public handleClick() {
     if (this.mobileNavActive) {
       this._uiService.toggleMobileNav(false);
     }

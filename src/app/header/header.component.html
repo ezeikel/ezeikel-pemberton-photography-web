@@ -5,18 +5,18 @@
     </div>
     <ul class="header__menu">
       <li class="menu-item">
-        <a routerLink="/" (click)="closeMenu()">Home</a>
+        <a routerLink="/" (click)="handleClick()">Home</a>
       </li>
       <li class="menu-item">
-        <a routerLink="/blog" (click)="closeMenu()">Blog</a>
+        <a routerLink="/blog" (click)="handleClick()">Blog</a>
       </li>
     </ul>
     <ul class="header__menu">
       <li class="menu-item">
-        <a href="http://clients.ezeikelpemberton.com" (click)="closeMenu()">Clients</a>
+        <a href="http://clients.ezeikelpemberton.com" (click)="handleClick()">Clients</a>
       </li>
       <li class="menu-item">
-        <a [routerLink]="['/home']" fragment="contact" (click)="closeMenu()">Get in touch</a>
+        <a [routerLink]="['/home']" fragment="contact" (click)="handleClick()">Get in touch</a>
       </li>
     </ul>
   </nav>
