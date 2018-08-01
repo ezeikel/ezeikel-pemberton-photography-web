@@ -12,7 +12,11 @@
     var(--color-primary),
     var(--color-gold)
   );
-  color: var(--color-white);
+  a,
+  span,
+  i {
+    color: var(--color-white);
+  }
   @media (min-width: $bp-md) {
     grid-row-gap: var(--spacing-huge);
     padding: var(--spacing-huge);
@@ -42,12 +46,11 @@
 
 .footer__logo {
   display: block;
-  width: 150px;
+  width: 200px;
   height: 100px;
   @media (min-width: $bp-md) {
     grid-row: 1 / -1;
     grid-column: 1 / span 1;
-    width: 200px;
   }
 }
 

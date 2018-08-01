@@ -1,32 +1,33 @@
 /* CSS Variables */
 
 :root {
-    /* Colors */
-    --color-primary: #E7995C;
-    /* --color-primary: #F7E7CE; */
-    --color-secondary: #F1D3D1;
-    --color-black: #000;
-    --color-white: #fff;
-    --color-gold: #CDA349;
-    --color-gold-lighter: #d4af61;
-    --color-light-grey: #ecf0f1;
-    --color-red: #e74c3c;
-    --color-green: #2ecc71;
-    --color-grey: #bdc3c7;
-    --text-color: #3b3b3b;
+  /* Colors */
+  --color-primary: #e7995c;
+  /* --color-primary: #F7E7CE; */
+  --color-secondary: #f1d3d1;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gold: #cda349;
+  --color-gold-lighter: #d4af61;
+  --color-light-grey: #ecf0f1;
+  --color-red: #e74c3c;
+  --color-green: #2ecc71;
+  --color-grey: #bdc3c7;
+  --text-color: #3b3b3b;
 
-    /* Spacing */
-    --spacing-tiny: 4px;
-    --spacing-small: 8px;
-    --spacing-medium: 16px;
-    --spacing-large: 32px;
-    --spacing-huge: 64px;
-    --spacing-gigantic: 128px;
+  /* Spacing */
+  --spacing-tiny: 4px;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+  --spacing-huge: 64px;
+  --spacing-gigantic: 128px;
 
-    --default-font-family: 'brandon-grotesque';
+  --primary-font-family: "brandon-grotesque";
+  --secondary-font-family: karmina;
 
-    /* Font Sizing */
-    --default-font-size: 16px;
+  /* Font Sizing */
+  --default-font-size: 16px;
 }
 
 /* Sass Variables */

@@ -2,7 +2,6 @@
 @import "shared/mixins";
 
 :host {
-  height: 100%;
   &.is-active {
     .logo .path {
       fill: var(--color-black);

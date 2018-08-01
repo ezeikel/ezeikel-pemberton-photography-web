@@ -11,10 +11,9 @@
   grid-row-gap: var(--spacing-large);
   &__title {
     @include heading;
-    @media(min-width: $bp-md) {
-      span: 1 / span 1;
+    @media (min-width: $bp-md) {
+      grid-column: 1 / span 1;
     }
-
   }
   &__copy {
     font-size: 24px;
@@ -22,12 +21,16 @@
       margin: 0;
       text-align: left;
       line-height: 1.4;
-      a, a:visited, a:active, a:link, a:focus {
+      a,
+      a:visited,
+      a:active,
+      a:link,
+      a:focus {
         color: var(--color-primary);
       }
     }
   }
-  @media(min-width: $bp-md) {
+  @media (min-width: $bp-md) {
     grid-template-columns: repeat(4, 1fr);
     &__copy {
       grid-column: 1 / 3;

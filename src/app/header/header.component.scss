@@ -75,11 +75,10 @@
   &__logo-link {
     display: grid;
     place-items: center;
-    width: 150px;
+    width: 200px;
     height: 100px;
     z-index: 1;
     @media (min-width: $bp-md) {
-      width: 200px;
     }
   }
   &__menu {
