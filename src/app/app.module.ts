@@ -7,7 +7,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireStorageModule } from "angularfire2/storage";
 
-import { environment } from "./../environments/environment";
+import { environment } from "../environments/environment";
 import { TaveApiService } from "./services/tave-api.service";
 import { FirebaseService } from "./services/firebase.service";
 import { UiService } from "./services/ui.service";
@@ -17,14 +17,14 @@ import { CapitalizePipe } from "./pipes/capitalize.pipe";
 import { AppComponent } from "./app.component";
 import { HeroCarouselComponent } from "./hero-carousel/hero-carousel.component";
 import { HomeComponent } from "./home/home.component";
-import { BlogPreviewComponent } from "./blog-preview/blog-preview.component";
+import { LatestUpdatesComponent } from "./latest-updates/latest-updates.component";
 import { ScrollDownComponent } from "./scroll-down/scroll-down.component";
 import { ContactFormComponent } from "./contact-form/contact-form.component";
 import { BlogComponent } from "./blog/blog.component";
 import { BlogPostComponent } from "./blog-post/blog-post.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
-import { AppRoutingModule } from ".//app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 import { HamburgerComponent } from "./hamburger/hamburger.component";
 import { DetailsComponent } from "./details/details.component";
 import { ContactComponent } from "./contact/contact.component";
@@ -36,7 +36,7 @@ import { LogoComponent } from "./logo/logo.component";
     AppComponent,
     HeroCarouselComponent,
     HomeComponent,
-    BlogPreviewComponent,
+    LatestUpdatesComponent,
     ScrollDownComponent,
     ContactFormComponent,
     EqualValidatorDirective,

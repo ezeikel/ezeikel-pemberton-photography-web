@@ -1,6 +1,6 @@
-<div class="blog-previews">
-  <h2 class="blog-previews__title">Our latest updates</h2>
-  <div class="blog-previews__wrapper">
+<div class="latest-updates">
+  <h2 class="latest-updates__title">Our latest updates</h2>
+  <div class="latest-updates__wrapper">
     <div class="preview" *ngFor="let preview of previews">
       <a routerLink="/blog/{{preview.firebaseRef}}">
           <div class="preview__image" [ngStyle]="{'background-image': 'url(' + (preview.url) + ')'}"></div>
