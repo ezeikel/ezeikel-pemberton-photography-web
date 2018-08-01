@@ -66,8 +66,10 @@
     visibility: visible;
     display: grid;
     justify-items: center;
+    padding-top: var(--spacing-large);
     @media (min-width: $bp-md) {
       order: 2;
+      padding-top: 0;
     }
   }
   &__logo-link {
