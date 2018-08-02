@@ -1,0 +1,14 @@
+<div class="blog-previews">
+  <div class="blog-previews__wrapper">
+    <div class="preview" *ngFor="let preview of previews">
+      <a routerLink="/blog/{{preview.firebaseRef}}">
+        <div class="preview__image" [ngStyle]="{'background-image': 'url(' + (preview.url) + ')'}"></div>
+      </a>
+      <div class="preview__info">
+        <span class="preview__title">{{preview.title}}</span>
+        <span class="preview__type">Enagement Shoot</span>
+        <button class="preview__cta"><a routerLink="/blog/{{preview.firebaseRef}}">View More</a></button>
+      </div>
+    </div>
+  </div>
+</div>

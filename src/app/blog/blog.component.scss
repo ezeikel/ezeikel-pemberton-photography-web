@@ -1,0 +1,6 @@
+@import "shared/variables";
+@import "shared/mixins";
+
+:host {
+  margin-bottom: var(--spacing-large);
+}

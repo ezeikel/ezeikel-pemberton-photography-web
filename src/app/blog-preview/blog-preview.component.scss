@@ -1,0 +1,44 @@
+@import "shared/variables";
+@import "shared/mixins";
+
+.blog-previews {
+  display: grid;
+  &__wrapper {
+    display: grid;
+    padding: var(--spacing-medium) var(--spacing-medium) 0;
+    @media (min-width: $bp-md) {
+      grid-template-columns: 1fr 1fr;
+      place-items: center;
+      grid-gap: var(--spacing-medium);
+    }
+  }
+  .preview {
+    width: 100%;
+    display: grid;
+    grid-template-row: 1fr auto;
+    grid-row-gap: var(--spacing-medium);
+    &__image {
+      height: 600px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    &__info {
+      display: grid;
+      grid-row-gap: var(--spacing-medium);
+      place-items: center;
+    }
+    &__title {
+      font-size: 28px;
+      font-family: var(--secondary-font-family);
+    }
+    &__type {
+      font-size: 18px;
+    }
+    &__cta {
+      @include button(var(--color-primary));
+      text-transform: uppercase;
+    }
+  }
+}

@@ -29,6 +29,7 @@ import { HamburgerComponent } from "./hamburger/hamburger.component";
 import { DetailsComponent } from "./details/details.component";
 import { ContactComponent } from "./contact/contact.component";
 import { LogoComponent } from "./logo/logo.component";
+import { BlogPreviewComponent } from "./blog-preview/blog-preview.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LogoComponent } from "./logo/logo.component";
     HamburgerComponent,
     DetailsComponent,
     ContactComponent,
-    LogoComponent
+    LogoComponent,
+    BlogPreviewComponent
   ],
   imports: [
     BrowserModule,
