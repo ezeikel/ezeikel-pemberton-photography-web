@@ -12,7 +12,8 @@
   &__title {
     @include heading;
     @media (min-width: $bp-md) {
-      grid-column: 1 / span 1;
+      grid-column: 1 / span 2;
+      text-align: left;
     }
   }
   &__copy {
