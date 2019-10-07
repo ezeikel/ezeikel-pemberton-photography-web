@@ -1,19 +1,28 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, AfterViewInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { skipWhile, takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
+import { ContentfulService } from "../services/contentful.service";
 
 @Component({
   selector: "ep-photography-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"]
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private _unsubscribe$ = new Subject();
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _contentfulService: ContentfulService
+  ) {}
 
-  public ngOnInit() {}
+  public ngOnInit() {
+    this._contentfulService.getCarouselImages().then(images => {
+      console.log({ images });
+      debugger;
+    });
+  }
 
   public ngAfterViewInit() {
     // listen to route fragment changes and scroll to position

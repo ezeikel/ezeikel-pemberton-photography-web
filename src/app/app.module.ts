@@ -8,12 +8,14 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireStorageModule } from "angularfire2/storage";
 
 import { environment } from "../environments/environment";
+
+// services
 import { TaveApiService } from "./services/tave-api.service";
 import { FirebaseService } from "./services/firebase.service";
 import { UiService } from "./services/ui.service";
-import { EqualValidatorDirective } from "./directives/equals-validator.directive";
-import { CapitalizePipe } from "./pipes/capitalize.pipe";
+import { ContentfulService } from "./services/contentful.service";
 
+// components
 import { AppComponent } from "./app.component";
 import { HeroCarouselComponent } from "./hero-carousel/hero-carousel.component";
 import { HomeComponent } from "./home/home.component";
@@ -30,6 +32,12 @@ import { DetailsComponent } from "./details/details.component";
 import { ContactComponent } from "./contact/contact.component";
 import { LogoComponent } from "./logo/logo.component";
 import { BlogPreviewComponent } from "./blog-preview/blog-preview.component";
+
+// directives
+import { EqualValidatorDirective } from "./directives/equals-validator.directive";
+
+// pipes
+import { CapitalizePipe } from "./pipes/capitalize.pipe";
 
 @NgModule({
   declarations: [
@@ -60,7 +68,7 @@ import { BlogPreviewComponent } from "./blog-preview/blog-preview.component";
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [TaveApiService, FirebaseService, UiService],
+  providers: [TaveApiService, FirebaseService, UiService, ContentfulService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
