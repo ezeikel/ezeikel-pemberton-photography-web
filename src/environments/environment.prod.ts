@@ -8,4 +8,8 @@ export const environment = {
     storageBucket: `ezeikel-pemberton-photography.appspot.com`,
     messagingSenderId: `550055016794`,
   },
+  contentful: {
+    spaceId: `gjba64va93uk`,
+    token: `oV8V1p_z8ycmTbYnnd47JfSAKzAlLc4pJ4-R4psRpOk`,
+  },
 };
