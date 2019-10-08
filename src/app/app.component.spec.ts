@@ -1,25 +1,19 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, async, ComponentFixture } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
 
-describe('AppComponent', () => {
+describe(`AppComponent`, () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let de, element;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent, HeaderComponent, FooterComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -30,8 +24,7 @@ describe('AppComponent', () => {
     fixture.detectChanges(); // trigger component change detection
   }));
 
-  it('should create the app', async(() => {
+  it(`should create the app`, async(() => {
     expect(component).toBeTruthy();
   }));
-
 });

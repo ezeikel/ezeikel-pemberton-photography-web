@@ -2,28 +2,28 @@ import { Component, OnInit } from "@angular/core";
 import { FirebaseService } from "../services/firebase.service";
 
 @Component({
-  selector: "ep-photography-latest-updates",
-  templateUrl: "./latest-updates.component.html",
-  styleUrls: ["./latest-updates.component.scss"]
+  selector: `ep-photography-latest-updates`,
+  templateUrl: `./latest-updates.component.html`,
+  styleUrls: [`./latest-updates.component.scss`],
 })
 export class LatestUpdatesComponent implements OnInit {
   public previews: Array<any>;
   public latest = [
     {
-      title: "Fari + Tino",
-      url: "",
-      firebaseRef: "fari-tino"
+      title: `Fari + Tino`,
+      url: ``,
+      firebaseRef: `fari-tino`,
     },
     {
-      title: "Latrena + Pavel",
-      url: "",
-      firebaseRef: "latrena-pavel"
+      title: `Latrena + Pavel`,
+      url: ``,
+      firebaseRef: `latrena-pavel`,
     },
     {
-      title: "Vicky + Nii",
-      url: "",
-      firebaseRef: "vicky-nii"
-    }
+      title: `Vicky + Nii`,
+      url: ``,
+      firebaseRef: `vicky-nii`,
+    },
   ];
 
   constructor(private _firebaseService: FirebaseService) {}

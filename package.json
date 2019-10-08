@@ -6,12 +6,22 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --no-progress",
-    "format:fix": "pretty-quick --staged",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "precommit": "yarn format:fix"
+    "lint-staged": "lint-staged",
+    "pretty-quick": "pretty-quick",
+    "e2e": "ng e2e"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged && ng lint --fix && git add",
+      "pre-push": "yarn test:prepush"
+    }
+  },
+  "browsersList": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "^0.803.5",
@@ -29,6 +39,7 @@
     "core-js": "^3.2.1",
     "firebase": "6.6.2",
     "font-awesome": "^4.7.0",
+    "lint-staged": "^9.4.2",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
     "rxjs": "^6.5.3",

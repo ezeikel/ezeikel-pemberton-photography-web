@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FirebaseService } from '../services/firebase.service';
+import { Component, OnInit } from "@angular/core";
+import { ContentfulService } from "../services/contentful.service";
 
 @Component({
-  selector: 'ep-photography-hero-carousel',
-  templateUrl: './hero-carousel.component.html',
-  styleUrls: ['./hero-carousel.component.scss']
+  selector: `ep-photography-hero-carousel`,
+  templateUrl: `./hero-carousel.component.html`,
+  styleUrls: [`./hero-carousel.component.scss`],
 })
 export class HeroCarouselComponent implements OnInit {
-  public $slides: Observable<any[]>
+  public slides: string[];
 
-  constructor(private _firebaseService: FirebaseService) {}
+  constructor(private _contentfulService: ContentfulService) {}
 
   ngOnInit() {
-    this.$slides = this._firebaseService.getCarouselImages(5)
+    this._contentfulService
+      .getCarouselImages()
+      .subscribe(slides => (this.slides = slides));
   }
-
 }

@@ -1,21 +1,19 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { TestBed, async, ComponentFixture } from "@angular/core/testing";
+import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 
-import { FooterComponent } from './footer.component';
+import { FooterComponent } from "./footer.component";
 
-describe('FooterComponent', () => {
+describe(`FooterComponent`, () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
   let de, element;
 
-  const year = (new Date()).getFullYear();
+  const year = new Date().getFullYear();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        FooterComponent
-      ],
+      declarations: [FooterComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
@@ -26,11 +24,11 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should be created', async(() => {
+  it(`should be created`, async(() => {
     expect(component).toBeTruthy();
   }));
 
-  it('should have year property', async(() => {
+  it(`should have year property`, async(() => {
     expect(component.year).toBeTruthy();
   }));
 
@@ -39,7 +37,11 @@ describe('FooterComponent', () => {
   }));
 
   it(`should render '${year}' inside of .footer__copyright element`, async(() => {
-    expect(element.querySelector('.footer__copyright').textContent).toContain(year);
-    expect(de.query(By.css('.footer__copyright')).nativeElement.innerText).toContain(year);
+    expect(element.querySelector(`.footer__copyright`).textContent).toContain(
+      year,
+    );
+    expect(
+      de.query(By.css(`.footer__copyright`)).nativeElement.innerText,
+    ).toContain(year);
   }));
 });

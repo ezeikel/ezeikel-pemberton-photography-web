@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { UiService } from '../services/ui.service';
+import { Component, OnInit } from "@angular/core";
+import { UiService } from "../services/ui.service";
 
 @Component({
-  selector: 'ep-photography-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: `ep-photography-header`,
+  templateUrl: `./header.component.html`,
+  styleUrls: [`./header.component.scss`],
 })
 export class HeaderComponent implements OnInit {
   public mobileNavActive;
@@ -12,10 +12,9 @@ export class HeaderComponent implements OnInit {
   constructor(private _uiService: UiService) {}
 
   public ngOnInit() {
-    this._uiService.getMobileNavStatus()
-      .subscribe(val => {
-        this.mobileNavActive = val;
-      });
+    this._uiService.getMobileNavStatus().subscribe(val => {
+      this.mobileNavActive = val;
+    });
   }
 
   public handleClick() {
@@ -23,5 +22,4 @@ export class HeaderComponent implements OnInit {
       this._uiService.toggleMobileNav(false);
     }
   }
-
 }

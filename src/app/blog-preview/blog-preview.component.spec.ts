@@ -2,13 +2,13 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { BlogPreviewComponent } from "./blog-preview.component";
 
-describe("BlogPreviewComponent", () => {
+describe(`BlogPreviewComponent`, () => {
   let component: BlogPreviewComponent;
   let fixture: ComponentFixture<BlogPreviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BlogPreviewComponent]
+      declarations: [BlogPreviewComponent],
     }).compileComponents();
   }));
 
@@ -18,7 +18,7 @@ describe("BlogPreviewComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it(`should create`, () => {
     expect(component).toBeTruthy();
   });
 });

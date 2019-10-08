@@ -1,42 +1,35 @@
 import { Injectable } from "@angular/core";
-import { createClient, Entry } from "contentful";
+import { createClient } from "contentful";
 import { environment } from "../../environments/environment";
-import { Observable } from "rxjs";
+import { from, Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class ContentfulService {
   private client = createClient({
     space: environment.contentful.spaceId,
-    accessToken: environment.contentful.token
+    accessToken: environment.contentful.token,
   });
 
   constructor() {}
 
-  public getCarouselImages(query?: object): Promise<Entry<any>[]> {
-    return this.client
-      .getEntries(
+  public getCarouselImages(query?: object): Observable<string[]> {
+    // convert Promise to an Observable
+    return from(
+      this.client.getEntries(
         Object.assign(
           {
-            content_type: "heroCarouselImage"
+            content_type: `heroCarousel`,
           },
-          query
-        )
-      )
-      .then(res => res.items);
-
-    // TODO:
-    // return response.items.map(item => item.fields.photo.field.file.url);
+          query,
+        ),
+      ),
+    ).pipe(
+      map(res =>
+        res.items[0].fields[`images`].map(
+          image => image.fields.photo.fields.file.url,
+        ),
+      ),
+    );
   }
-
-  // public getCarouselImages(count: number): Observable<string[]> {
-  //   const imageUrls = [];
-
-  //   for (let i = 1; i <= count; i++) {
-  //     const ref = this._getStorageUrl('hero-carousel', `slide-${i}`);
-  //     const url = ref.getDownloadURL();
-  //     imageUrls.push(url);
-  //   }
-
-  //   return forkJoin(...imageUrls).pipe(skipWhile(urls => urls.length === 0));
-  // }
 }

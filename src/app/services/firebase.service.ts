@@ -1,19 +1,22 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireStorage } from 'angularfire2/storage';
-import { Observable, forkJoin, from } from 'rxjs';
-import { skipWhile } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireStorage } from "angularfire2/storage";
+import { Observable, forkJoin, from } from "rxjs";
+import { skipWhile } from "rxjs/operators";
 
 @Injectable()
 export class FirebaseService {
-  constructor(private _db: AngularFireDatabase, private _storage: AngularFireStorage) {}
+  constructor(
+    private _db: AngularFireDatabase,
+    private _storage: AngularFireStorage,
+  ) {}
 
   public getGalleryPreview(collection: string): any {
     if (!collection) {
       return;
     }
 
-    const ref = this._getStorageUrl('gallery-preview', collection);
+    const ref = this._getStorageUrl(`gallery-preview`, collection);
     return ref.getDownloadURL();
   }
 
@@ -21,7 +24,7 @@ export class FirebaseService {
     const urls = [];
 
     latest.forEach(item => {
-      const ref = this._getStorageUrl('gallery-preview', item.firebaseRef);
+      const ref = this._getStorageUrl(`gallery-preview`, item.firebaseRef);
       urls.push(ref.getDownloadURL());
 
       return item;
@@ -34,8 +37,8 @@ export class FirebaseService {
     const imageUrls = [];
 
     for (let i = 1; i <= count; i++) {
-      const ref = this._getStorageUrl('hero-carousel', `slide-${i}`);
-      const url = ref.getDownloadURL()
+      const ref = this._getStorageUrl(`hero-carousel`, `slide-${i}`);
+      const url = ref.getDownloadURL();
       imageUrls.push(url);
     }
 
@@ -43,11 +46,10 @@ export class FirebaseService {
   }
 
   public getTestimonials(): Observable<any[]> {
-    return this._db.list('testimonals').valueChanges();
+    return this._db.list(`testimonals`).valueChanges();
   }
 
   private _getStorageUrl(node, firebaseRef) {
     return this._storage.ref(`${node}/${firebaseRef}.jpg`);
   }
-
 }

@@ -8,7 +8,7 @@ import { FirebaseService } from "../services/firebase.service";
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireStorage } from "angularfire2/storage";
 
-describe("LatestUpdatesComponent", () => {
+describe(`LatestUpdatesComponent`, () => {
   let component: LatestUpdatesComponent;
   let fixture: ComponentFixture<LatestUpdatesComponent>;
   let de, element;
@@ -19,10 +19,10 @@ describe("LatestUpdatesComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase)
+        AngularFireModule.initializeApp(environment.firebase),
       ],
       declarations: [LatestUpdatesComponent],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage]
+      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LatestUpdatesComponent);
@@ -33,7 +33,7 @@ describe("LatestUpdatesComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it(`should be created`, () => {
     expect(component).toBeTruthy();
   });
 });
