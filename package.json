@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && lint-staged && ng lint --fix && git add",
+      "pre-commit": "pretty-quick --staged && lint-staged && ng lint --fix",
       "pre-push": "yarn test:prepush"
     }
   },
