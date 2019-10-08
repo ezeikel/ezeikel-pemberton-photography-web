@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --no-progress",
-    "test": "ng test",
+    "test": "ng test --karma-config src/karma.conf.js",
+    "test:prepush": "ng test --karma-config src/karma.conf.js --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
     "lint-staged": "lint-staged",
     "pretty-quick": "pretty-quick",
@@ -14,8 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && lint-staged && ng lint --fix",
-      "pre-push": "yarn test:prepush"
+      "pre-commit": "pretty-quick --staged && lint-staged && ng lint --fix"
     }
   },
   "browsersList": [
