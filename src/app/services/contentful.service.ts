@@ -32,4 +32,26 @@ export class ContentfulService {
       ),
     );
   }
+
+  public getDetails(query?: object): Observable<string[]> {
+    // convert Promise to an Observable
+    return from(
+      this.client.getEntries(
+        Object.assign(
+          {
+            content_type: `textImages`,
+          },
+          query,
+        ),
+      ),
+    ).pipe(
+      map(res =>
+        res.items[0].fields[`textImage`].map((detail, index) => ({
+          copy: detail.fields.copy,
+          imageUrl: detail.fields.image.fields.file.url,
+          cta: index === 1 ? true : false,
+        })),
+      ),
+    );
+  }
 }

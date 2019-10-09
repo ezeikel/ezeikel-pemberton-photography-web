@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ContentfulService } from "../services/contentful.service";
 
 @Component({
   selector: `ep-photography-details`,
@@ -6,25 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: [`./details.component.scss`],
 })
 export class DetailsComponent implements OnInit {
-  public items = [
-    {
-      copy: `We are a team of photographers based in London, UK who specialise in documenting those moments that will live on in the memory for a lifetime.`,
-      imageUrl: `https://bit.ly/2AiGY3i`,
-      cta: false,
-    },
-    {
-      copy: `We use every last drop of our creative juices to tell your story in the most unique way, while keeping as true as we can to the emotions and feelings at that time.`,
-      imageUrl: `https://bit.ly/2OogaBG`,
-      cta: true,
-    },
-    {
-      copy: `Our ultimate goal is to have our clients re-ignite those emotions and feelings everytime they look at our work.`,
-      imageUrl: `https://bit.ly/2uZKM4k`,
-      cta: false,
-    },
-  ];
+  public details: string[];
+  constructor(private _contentfulService: ContentfulService) {}
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this._contentfulService
+      .getDetails()
+      .subscribe(details => (this.details = details));
+  }
 }
