@@ -54,4 +54,30 @@ export class ContentfulService {
       ),
     );
   }
+
+  public getBlogPreviews(
+    query?: object,
+  ): Observable<{ title: string; previews: any[] }> {
+    // convert Promise to an Observable
+    return from(
+      this.client.getEntries(
+        Object.assign(
+          {
+            content_type: `preview`,
+          },
+          query,
+        ),
+      ),
+    ).pipe(
+      map(res => {
+        const title = res.items[0].fields[`title`];
+        const previews = res.items[0].fields[`previewImage`].map(preview => ({
+          title: preview.fields.caption,
+          url: preview.fields.photo.fields.file.url,
+          slug: preview.fields.slug,
+        }));
+        return { title, previews };
+      }),
+    );
+  }
 }

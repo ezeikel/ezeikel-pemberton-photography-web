@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FirebaseService } from "../services/firebase.service";
+import { ContentfulService } from "../services/contentful.service";
 
 @Component({
   selector: `ep-photography-latest-updates`,
@@ -8,33 +8,17 @@ import { FirebaseService } from "../services/firebase.service";
 })
 export class LatestUpdatesComponent implements OnInit {
   public previews: Array<any>;
-  public latest = [
-    {
-      title: `Fari + Tino`,
-      url: ``,
-      firebaseRef: `fari-tino`,
-    },
-    {
-      title: `Latrena + Pavel`,
-      url: ``,
-      firebaseRef: `latrena-pavel`,
-    },
-    {
-      title: `Vicky + Nii`,
-      url: ``,
-      firebaseRef: `vicky-nii`,
-    },
-  ];
+  public title: string;
 
-  constructor(private _firebaseService: FirebaseService) {}
+  constructor(private _contentfulService: ContentfulService) {}
 
   public ngOnInit() {
-    // TODO: replace this with call to db to check latest weddings
-    this._firebaseService.getBlogPreviews(this.latest).subscribe(urls => {
-      this.previews = this.latest.map((item, i) => {
-        item.url = urls[i];
-        return item;
+    // TODO: query to Contenful for last three blog posts?
+    this._contentfulService
+      .getBlogPreviews()
+      .subscribe(({ title, previews }) => {
+        this.previews = previews;
+        this.title = title;
       });
-    });
   }
 }

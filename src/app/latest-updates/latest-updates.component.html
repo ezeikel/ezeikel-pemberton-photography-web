@@ -1,11 +1,14 @@
 <div class="latest-updates">
-  <h2 class="latest-updates__title">Our latest updates</h2>
+  <h2 class="latest-updates__title">{{ title }}</h2>
   <div class="latest-updates__wrapper">
     <div class="preview" *ngFor="let preview of previews">
-      <a routerLink="/blog/{{preview.firebaseRef}}">
-          <div class="preview__image" [ngStyle]="{'background-image': 'url(' + (preview.url) + ')'}"></div>
+      <a routerLink="/blog/{{ preview.slug }}">
+        <div
+          class="preview__image"
+          [ngStyle]="{ 'background-image': 'url(' + preview.url + ')' }"
+        ></div>
       </a>
-      <span class="preview__info">{{preview.title}}</span>
+      <span class="preview__info">{{ preview.title }}</span>
     </div>
   </div>
 </div>
