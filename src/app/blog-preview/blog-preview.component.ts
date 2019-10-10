@@ -8,17 +8,17 @@ import { ContentfulService } from "../services/contentful.service";
 })
 export class BlogPreviewComponent implements OnInit {
   public previews: Array<any>;
-  public title: string; // TODO: Do i need this?
 
   constructor(private _contentfulService: ContentfulService) {}
 
   public ngOnInit() {
-    // TODO: query to Contenful for all blog posts. Pagination?
+    // TODO: Pagination?
     this._contentfulService
-      .getBlogPreviews()
-      .subscribe(({ title, previews }) => {
+      .getBlogPreviews({
+        order: `-fields.date`,
+      })
+      .subscribe(({ previews }) => {
         this.previews = previews;
-        this.title = title;
       });
   }
 }

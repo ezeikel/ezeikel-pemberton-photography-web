@@ -8,17 +8,17 @@ import { ContentfulService } from "../services/contentful.service";
 })
 export class LatestUpdatesComponent implements OnInit {
   public previews: Array<any>;
-  public title: string;
 
   constructor(private _contentfulService: ContentfulService) {}
 
   public ngOnInit() {
-    // TODO: query to Contenful for last three blog posts?
     this._contentfulService
-      .getBlogPreviews()
-      .subscribe(({ title, previews }) => {
+      .getBlogPreviews({
+        order: `-fields.date`,
+        limit: 3,
+      })
+      .subscribe(({ previews }) => {
         this.previews = previews;
-        this.title = title;
       });
   }
 }
