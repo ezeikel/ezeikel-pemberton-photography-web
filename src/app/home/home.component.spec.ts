@@ -6,10 +6,7 @@ import { HomeComponent } from "./home.component";
 import { HeroCarouselComponent } from "../hero-carousel/hero-carousel.component";
 import { ScrollDownComponent } from "../scroll-down/scroll-down.component";
 import { BlogPreviewComponent } from "../blog-preview/blog-preview.component";
-import { AngularFireModule } from "angularfire2";
-import { FirebaseService } from "../services/firebase.service";
-import { AngularFireDatabase } from "angularfire2/database";
-import { AngularFireStorage } from "angularfire2/storage";
+import { ContentfulService } from "../services/contentful.service";
 
 describe(`HomeComponent`, () => {
   let component: HomeComponent;
@@ -20,17 +17,14 @@ describe(`HomeComponent`, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase),
-      ],
+      imports: [RouterTestingModule],
       declarations: [
         HomeComponent,
         HeroCarouselComponent,
         ScrollDownComponent,
         BlogPreviewComponent,
       ],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
+      providers: [ContentfulService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);

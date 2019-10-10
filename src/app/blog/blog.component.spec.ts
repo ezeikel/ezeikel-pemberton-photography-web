@@ -3,10 +3,7 @@ import { environment } from "../../environments/environment";
 
 import { BlogComponent } from "./blog.component";
 import { RouterTestingModule } from "@angular/router/testing";
-import { AngularFireModule } from "angularfire2";
-import { FirebaseService } from "../services/firebase.service";
-import { AngularFireDatabase } from "angularfire2/database";
-import { AngularFireStorage } from "angularfire2/storage";
+import { ContentfulService } from "../services/contentful.service";
 import { BlogPreviewComponent } from "../blog-preview/blog-preview.component";
 
 describe(`BlogComponent`, () => {
@@ -16,12 +13,9 @@ describe(`BlogComponent`, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase),
-      ],
+      imports: [RouterTestingModule],
       declarations: [BlogComponent, BlogPreviewComponent],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
+      providers: [ContentfulService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogComponent);

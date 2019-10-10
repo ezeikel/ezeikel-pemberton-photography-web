@@ -3,10 +3,7 @@ import { environment } from "../../environments/environment";
 
 import { LatestUpdatesComponent } from "./latest-updates.component";
 import { RouterTestingModule } from "@angular/router/testing";
-import { AngularFireModule } from "angularfire2";
-import { FirebaseService } from "../services/firebase.service";
-import { AngularFireDatabase } from "angularfire2/database";
-import { AngularFireStorage } from "angularfire2/storage";
+import { ContentfulService } from "../services/contentful.service";
 
 describe(`LatestUpdatesComponent`, () => {
   let component: LatestUpdatesComponent;
@@ -17,12 +14,9 @@ describe(`LatestUpdatesComponent`, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase),
-      ],
+      imports: [RouterTestingModule],
       declarations: [LatestUpdatesComponent],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
+      providers: [ContentfulService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LatestUpdatesComponent);

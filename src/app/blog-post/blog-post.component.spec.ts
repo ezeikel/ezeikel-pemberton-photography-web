@@ -3,10 +3,7 @@ import { environment } from "../../environments/environment";
 
 import { BlogPostComponent } from "./blog-post.component";
 import { RouterTestingModule } from "@angular/router/testing";
-import { AngularFireModule } from "angularfire2";
-import { FirebaseService } from "../services/firebase.service";
-import { AngularFireDatabase } from "angularfire2/database";
-import { AngularFireStorage } from "angularfire2/storage";
+import { ContentfulService } from "../services/contentful.service";
 
 describe(`BlogPostComponent`, () => {
   let component: BlogPostComponent;
@@ -15,12 +12,9 @@ describe(`BlogPostComponent`, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase),
-      ],
+      imports: [RouterTestingModule],
       declarations: [BlogPostComponent],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
+      providers: [ContentfulService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogPostComponent);

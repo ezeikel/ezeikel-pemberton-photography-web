@@ -3,15 +3,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
-import { AngularFireModule } from "angularfire2";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireStorageModule } from "angularfire2/storage";
-
 import { environment } from "../environments/environment";
 
 // services
 import { TaveApiService } from "./services/tave-api.service";
-import { FirebaseService } from "./services/firebase.service";
 import { UiService } from "./services/ui.service";
 import { ContentfulService } from "./services/contentful.service";
 
@@ -57,18 +52,10 @@ import { CapitalizePipe } from "./pipes/capitalize.pipe";
     DetailsComponent,
     ContactComponent,
     LogoComponent,
-    BlogPreviewComponent
+    BlogPreviewComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
-    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
-  ],
-  providers: [TaveApiService, FirebaseService, UiService, ContentfulService],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  providers: [TaveApiService, UiService, ContentfulService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

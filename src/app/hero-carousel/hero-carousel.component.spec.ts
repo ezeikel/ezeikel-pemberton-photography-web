@@ -1,11 +1,7 @@
 import { TestBed, ComponentFixture } from "@angular/core/testing";
-import { environment } from "../../environments/environment";
 
 import { HeroCarouselComponent } from "./hero-carousel.component";
-import { AngularFireModule } from "angularfire2";
-import { FirebaseService } from "../services/firebase.service";
-import { AngularFireDatabase } from "angularfire2/database";
-import { AngularFireStorage } from "angularfire2/storage";
+import { ContentfulService } from "../services/contentful.service";
 
 describe(`HeroCarouselComponent`, () => {
   let component: HeroCarouselComponent;
@@ -16,9 +12,9 @@ describe(`HeroCarouselComponent`, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AngularFireModule.initializeApp(environment.firebase)],
+      imports: [],
       declarations: [HeroCarouselComponent],
-      providers: [FirebaseService, AngularFireDatabase, AngularFireStorage],
+      providers: [ContentfulService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroCarouselComponent);
