@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Subject } from "rxjs";
-import { FirebaseService } from "../services/firebase.service";
 import { mergeMap, skipWhile, takeUntil } from "rxjs/operators";
+import { ContentfulService } from "../services/contentful.service";
 
 @Component({
   selector: `ep-photography-blog-post`,
@@ -10,12 +10,11 @@ import { mergeMap, skipWhile, takeUntil } from "rxjs/operators";
   styleUrls: [`./blog-post.component.scss`],
 })
 export class BlogPostComponent implements OnInit, OnDestroy {
-  public collection: string;
-  public url: any;
+  public post: any;
   private _unsubscribe = new Subject();
 
   constructor(
-    private _firebaseService: FirebaseService,
+    private _contentfulService: ContentfulService,
     private _route: ActivatedRoute,
   ) {}
 
@@ -25,12 +24,13 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       .pipe(skipWhile(params => params[`post`] === undefined))
       .pipe(
         mergeMap(params =>
-          this._firebaseService.getGalleryPreview(params[`post`]),
+          this._contentfulService.getBlogPost({
+            "fields.slug[match]": params[`post`],
+          }),
         ),
       )
-      .subscribe(url => {
-        this.url = url;
-      });
+      .pipe(skipWhile(post => post === undefined))
+      .subscribe(post => (this.post = post));
   }
 
   public ngOnDestroy() {

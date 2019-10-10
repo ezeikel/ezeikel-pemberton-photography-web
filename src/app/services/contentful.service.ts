@@ -75,8 +75,45 @@ export class ContentfulService {
             preview.fields.photos.fields.coverImage[0].fields.photo.fields.file
               .url,
           slug: preview.fields.slug,
+          type: preview.fields.type,
         }));
         return { previews };
+      }),
+    );
+  }
+
+  public getBlogPost(query?: object): Observable<any> {
+    // convert Promise to an Observable
+    return from(
+      this.client.getEntries(
+        Object.assign(
+          {
+            content_type: `post`,
+            include: 2,
+          },
+          query,
+        ),
+      ),
+    ).pipe(
+      map((res: any) => {
+        // TODO: Create Blog post interface
+        const { slug, story, tags, title, type } = res.items[0].fields;
+        let {
+          photos: {
+            fields: { images },
+          },
+        } = res.items[0].fields;
+
+        images = images.map(image => image.fields.photo.fields.file.url);
+
+        return {
+          title,
+          story,
+          images,
+          type,
+          slug,
+          tags,
+        };
       }),
     );
   }
