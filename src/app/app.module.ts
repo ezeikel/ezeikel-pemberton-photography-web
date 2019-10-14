@@ -55,7 +55,7 @@ import { CapitalizePipe } from "./pipes/capitalize.pipe";
     BlogPreviewComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    BrowserModule.withServerTransition({ appId: `serverApp` }),
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
