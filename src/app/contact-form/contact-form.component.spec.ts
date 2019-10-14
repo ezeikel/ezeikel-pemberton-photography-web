@@ -50,10 +50,7 @@ describe(`ContactFormComponent`, () => {
       EventDate: `15/11/2020`,
     };
 
-    spyOn(taveApiService, `createLead`).and.returnValue({
-      JobId: 5364059,
-      Status: `success`,
-    });
+    spyOn(taveApiService, `createLead`);
 
     component.onSubmit();
     expect(taveApiService.createLead).toHaveBeenCalled();
@@ -72,10 +69,7 @@ describe(`ContactFormComponent`, () => {
       EventDate: `15/11/2020`,
     };
 
-    spyOn(taveApiService, `createLead`).and.returnValue({
-      JobId: 5364059,
-      Status: `success`,
-    });
+    spyOn(taveApiService, `createLead`);
 
     expect(component.submitted).toBeFalsy();
     expect(component.onSubmit()).toBeTruthy();

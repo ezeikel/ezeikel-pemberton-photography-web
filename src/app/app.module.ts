@@ -54,7 +54,12 @@ import { CapitalizePipe } from "./pipes/capitalize.pipe";
     LogoComponent,
     BlogPreviewComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   providers: [TaveApiService, UiService, ContentfulService],
   bootstrap: [AppComponent],
 })
