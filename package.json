@@ -1,6 +1,9 @@
 {
   "name": "ezeikel-pemberton-photography-web",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,6 +18,7 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "yarn build:client-and-server-bundles && yarn compile:server",
+    "now-build": "yarn build:ssr",
     "build:client-and-server-bundles": "ng build --prod && ng run ezeikel-pemberton-photography-web:server:production --bundleDependencies all"
   },
   "husky": {
