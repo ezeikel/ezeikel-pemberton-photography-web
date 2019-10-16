@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "name": "ezeikel-pemberton-photography-web",
-  "builds": [{ "src": "dist/server.js", "use": "@now/node" }],
-  "routes": [{ "src": "/.*", "dest": "dist/server.js" }]
-}

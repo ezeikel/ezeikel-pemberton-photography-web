@@ -1,25 +1,25 @@
 {
-  "name": "ezeikel-pemberton-photography-web",
+  "name": "@ezeikel-pemberton-photography-web/ezeikel-pemberton-photography-web",
   "version": "0.0.0",
   "engines": {
     "node": "10.x"
   },
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:prod": "ng build --prod --no-progress",
-    "test": "ng test --karma-config src/karma.conf.js",
-    "test:prepush": "ng test --karma-config src/karma.conf.js --watch=false --browsers ChromeHeadless",
-    "lint": "ng lint",
-    "lint-staged": "lint-staged",
-    "pretty-quick": "pretty-quick",
-    "e2e": "ng e2e",
+    "build": "yarn build:client-and-server-bundles && yarn compile:server && yarn build:serverless",
+    "build:client-and-server-bundles": "ng build --prod && ng run ezeikel-pemberton-photography-web:server:production",
+    "build:serverless": "cp ./serverless/now.json dist/ && cp ./serverless/serverless.js ./api/",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
     "build:ssr": "yarn build:client-and-server-bundles && yarn compile:server",
-    "now-build": "yarn build:ssr",
-    "build:client-and-server-bundles": "ng build --prod && ng run ezeikel-pemberton-photography-web:server:production --bundleDependencies all"
+    "serve:ssr": "node dist/server",
+
+    "start:dev-browser": "ng serve",
+    "start:dev": "yarn build:ssr && server:ssr",
+    "lint-staged": "lint-staged",
+    "lint": "ng lint",
+    "pretty-quick": "pretty-quick",
+    "test:prepush": "ng test --karma-config src/karma.conf.js --watch=false --browsers ChromeHeadless",
+    "test": "ng test --karma-config src/karma.conf.js",
+    "e2e": "ng e2e"
   },
   "husky": {
     "hooks": {

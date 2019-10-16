@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "ezeikel-pemberton-photography-web",
+  "public": true,
+  "builds": [
+    { "src": "../api/serverless.js", "use": "@now/node" },
+    { "src": "browser/**/*", "use": "@now/static" }
+  ],
+  "routes": [
+    { "src": "/(.*[.].+)", "dest": "/browser/$1" },
+    { "src": "/(.*)", "dest": "../api/serverless.js" }
+  ]
+}
