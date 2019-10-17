@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn build:client-and-server-bundles && yarn compile:server && yarn build:serverless",
     "build:client-and-server-bundles": "ng build --prod && ng run ezeikel-pemberton-photography-web:server:production",
-    "build:serverless": "cp ./serverless/now.json dist/ && cp ./serverless/serverless.js ./api/",
+    "build:serverless": "cp ./serverless/* ./api/",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "build:ssr": "yarn build:client-and-server-bundles && yarn compile:server",
     "serve:ssr": "node dist/server",
