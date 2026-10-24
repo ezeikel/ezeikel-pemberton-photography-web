@@ -1,0 +1,32 @@
+# Deploys the Worker on every push to master once the cutover script has set
+# vars.CLOUDFLARE_CUTOVER=true (so merging the branch early deploys nothing).
+# Nothing is built: the Worker serves the committed Vercel output in
+# cloudflare/dist/ (see cloudflare/README.md).
+name: Deploy Cloudflare
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+jobs:
+  web:
+    if: vars.CLOUDFLARE_CUTOVER == 'true' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check the committed files against their recorded hashes
+        working-directory: cloudflare
+        run: sha256sum -c --quiet SHA256SUMS
+      - name: Deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx -y wrangler@4.151.3 deploy

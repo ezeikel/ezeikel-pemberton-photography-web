@@ -1,0 +1,24 @@
+// Vercel's production output (cloudflare/dist/, see cloudflare/README.md) on
+// Workers static assets. Nothing is built: `wrangler deploy` uploads the
+// committed files. worker.ts runs first to keep Vercel's redirects (http ->
+// https, apex -> www), HSTS and to add the Web Analytics beacon.
+{
+  "name": "ezeikel-pemberton-photography-web",
+  "main": "cloudflare/worker.ts",
+  "compatibility_date": "2026-10-21",
+  "workers_dev": true,
+  "vars": {
+    // Public Web Analytics site token for www.ezeikelpemberton.photography
+    // (it ends up in every page, so it is not a secret).
+    "CF_WEB_ANALYTICS_TOKEN": "8bf079d958e8488d86c57894d7a955ed"
+  },
+  "assets": {
+    "directory": "cloudflare/dist",
+    "binding": "ASSETS",
+    // Files are served exactly at their own path (/index.html stays 200, as on
+    // Vercel); everything else falls back to index.html with 200.
+    "html_handling": "none",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  }
+}
