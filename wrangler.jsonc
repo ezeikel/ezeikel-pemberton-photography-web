@@ -8,9 +8,10 @@
   "compatibility_date": "2026-10-21",
   "workers_dev": true,
   "vars": {
-    // Public Web Analytics site token for www.ezeikelpemberton.photography
-    // (it ends up in every page, so it is not a secret).
-    "CF_WEB_ANALYTICS_TOKEN": "8bf079d958e8488d86c57894d7a955ed"
+    // Public token of the zone-level Web Analytics site of ezeikelpemberton.photography (created
+    // March 2026, so it needs no new site slot); it ends up in every page, so it is not a secret.
+    // The Worker adds send.to "/cdn-cgi/rum" because this is a zone token (see cloudflare/worker.ts).
+    "CF_WEB_ANALYTICS_TOKEN": "c114af4c9c41414589aeb8def6105584"
   },
   "assets": {
     "directory": "cloudflare/dist",

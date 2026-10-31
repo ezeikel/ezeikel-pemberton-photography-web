@@ -4,6 +4,10 @@
 // - HSTS on every response
 // - every unknown path answers index.html with 200 (wrangler.jsonc:
 //   not_found_handling "single-page-application"), as vercel-redirects did
+// - "; charset=utf-8" on HTML and CSS, as Vercel sent it
+// - a 4 hour browser cache on script, style, font and image files: Cloudflare's own
+//   edge (zone setting Browser Cache TTL) put that in front of Vercel, and it does not
+//   reach files that a Worker serves, so without it each page view would revalidate
 // It also adds the Cloudflare Web Analytics beacon to HTML responses, because
 // the files themselves stay unchanged.
 interface Env {
@@ -22,10 +26,18 @@ declare class HTMLRewriter {
 const APEX = 'ezeikelpemberton.photography';
 const CANONICAL_HOST = 'www.ezeikelpemberton.photography';
 const HSTS = 'max-age=63072000';
+// Cloudflare's default list of file types its edge caches (the ones live had at max-age=14400).
+const BROWSER_CACHED = /\.(?:js|css|svg|ico|woff2?|ttf|eot|otf|png|jpe?g|gif|webp|avif|bmp|tiff?)$/i;
+const BROWSER_CACHE = 'public, max-age=14400, must-revalidate';
 
-const withHsts = (response: Response): Response => {
+const withHeaders = (response: Response, pathname: string): Response => {
   const headers = new Headers(response.headers);
   headers.set('strict-transport-security', HSTS);
+  const type = headers.get('content-type');
+  const isHtml = !!type && /^text\/html$/i.test(type);
+  if (type && /^text\/(html|css)$/i.test(type)) headers.set('content-type', `${type}; charset=utf-8`);
+  // An unknown path that looks like a file falls back to index.html: that stays uncached.
+  if (!isHtml && response.status === 200 && BROWSER_CACHED.test(pathname)) headers.set('cache-control', BROWSER_CACHE);
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 };
 
@@ -41,7 +53,10 @@ const injectWebAnalytics = (request: Request, response: Response, token?: string
   )
     return response;
 
-  const beacon = JSON.stringify({ token })
+  // The token belongs to the Web Analytics site of the ZONE (ezeikelpemberton.photography), not of one
+  // hostname, so the beacon must send its report to the zone's own edge (/cdn-cgi/rum); the shared
+  // collector refuses a zone token. Reusing the zone site costs no new site (the account is at its cap).
+  const beacon = JSON.stringify({ token, send: { to: '/cdn-cgi/rum' } })
     .replaceAll('&', '&amp;')
     .replaceAll("'", '&#39;')
     .replaceAll('<', '&lt;')
@@ -78,7 +93,7 @@ export default {
         headers: { location: url.toString(), 'strict-transport-security': HSTS },
       });
     }
-    const response = withHsts(await env.ASSETS.fetch(request));
+    const response = withHeaders(await env.ASSETS.fetch(request), url.pathname);
     return injectWebAnalytics(request, response, env.CF_WEB_ANALYTICS_TOKEN);
   },
 };

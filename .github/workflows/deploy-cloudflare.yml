@@ -25,6 +25,8 @@ jobs:
       - name: Check the committed files against their recorded hashes
         working-directory: cloudflare
         run: sha256sum -c --quiet SHA256SUMS
+      # Redirect, header and beacon rules of cloudflare/worker.ts (the apex cannot be tried on workers.dev).
+      - run: node --test cloudflare/worker.test.mjs
       - name: Deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
