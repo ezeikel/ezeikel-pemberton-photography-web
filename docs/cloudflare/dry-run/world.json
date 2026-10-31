@@ -1,0 +1,155 @@
+{
+ "slug": "ezeikel-pemberton-photography-web",
+ "worker": "ezeikel-pemberton-photography-web",
+ "vercel_project": "prj_kojGnIWJpjEyrl7n4VlxSuRVSt0P",
+ "vercel_name": "ezeikel-pemberton-photography-web",
+ "branch": "wip/cloudflare-static-20261031",
+ "default_branch": "master",
+ "gh_repo": "ezeikel/ezeikel-pemberton-photography-web",
+ "canonical": "www.ezeikelpemberton.photography",
+ "live_url": "https://www.ezeikelpemberton.photography",
+ "hosts": [
+  {
+   "host": "www.ezeikelpemberton.photography",
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "records": [
+    {
+     "type": "A",
+     "content": "216.150.1.193",
+     "proxied": true,
+     "ttl": 1
+    },
+    {
+     "type": "A",
+     "content": "216.150.16.129",
+     "proxied": true,
+     "ttl": 1
+    }
+   ],
+   "alias": null
+  },
+  {
+   "host": "ezeikelpemberton.photography",
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "records": [
+    {
+     "type": "A",
+     "content": "216.150.1.1",
+     "proxied": true,
+     "ttl": 1
+    },
+    {
+     "type": "A",
+     "content": "216.150.1.193",
+     "proxied": true,
+     "ttl": 1
+    }
+   ],
+   "alias": {
+    "status": 308,
+    "location": "https://www.ezeikelpemberton.photography{path}"
+   }
+  }
+ ],
+ "extra_records": [
+  {
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "name": "*.ezeikelpemberton.photography",
+   "type": "A",
+   "content": "216.150.1.129"
+  },
+  {
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "name": "*.ezeikelpemberton.photography",
+   "type": "A",
+   "content": "216.150.1.193"
+  },
+  {
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "name": "ezeikelpemberton.photography",
+   "type": "CAA",
+   "content": "0 issue \"letsencrypt.org\""
+  },
+  {
+   "zone": "7ca50bfe4693668c051e5fc464f4d33d",
+   "name": "_domainconnect.ezeikelpemberton.photography",
+   "type": "CNAME",
+   "content": "_domainconnect.vercel-dns.com"
+  }
+ ],
+ "pages": {
+  "/": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  },
+  "/home": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  },
+  "/blog": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  },
+  "/blog/anything": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  },
+  "/sitemap.xml": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  },
+  "/robots.txt": {
+   "status": 200,
+   "type": "text/plain",
+   "text": "# Cloudflare managed robots.txt"
+  },
+  "/main.js": {
+   "status": 200,
+   "type": "application/javascript",
+   "text": "/* main */"
+  },
+  "/vendor.js": {
+   "status": 200,
+   "type": "application/javascript",
+   "text": "/* vendor */"
+  },
+  "/styles.css": {
+   "status": 200,
+   "type": "text/css",
+   "text": "body{}"
+  },
+  "/favicon.ico": {
+   "status": 200,
+   "type": "image/x-icon",
+   "text": "ico"
+  },
+  "/assets/logo-ep-full.svg": {
+   "status": 200,
+   "type": "image/svg+xml",
+   "text": "<svg/>"
+  },
+  "/fontawesome-webfont.woff2": {
+   "status": 200,
+   "type": "font/woff2",
+   "text": "woff2"
+  },
+  "/nope-404": {
+   "status": 200,
+   "type": "text/html",
+   "text": "Capturing images to tell the stories"
+  }
+ },
+ "expected_ttl_wait": 0,
+ "needs_fa": false,
+ "gh_vars": [],
+ "vercel_env": {},
+ "beacon": true,
+ "repo_dirs": [
+  "cloudflare"
+ ]
+}
